@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "myUsers": {
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -13,9 +16,6 @@
           "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
