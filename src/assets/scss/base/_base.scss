@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ds-icon svg {
+  vertical-align: top;
+}
+
+.disabled-section * {
+  pointer-events: none;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
