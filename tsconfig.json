@@ -4,6 +4,9 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "sourceMap": true,
+    "paths": {
+      "@my-users/generic-components/src/lib": ["projects/generic-components/src/public-api.ts"]
+    },
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",

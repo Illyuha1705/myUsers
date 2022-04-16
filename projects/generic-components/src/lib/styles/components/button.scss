@@ -1,0 +1,93 @@
+// Base button
+$btn_base_border_radius: 0;
+$btn_base_border: 1px solid transparent;
+$btn_base_font_size: 14px;
+$btn_base_padding_vertical: 7px;
+$btn_base_padding_horizontal: 15px;
+$btn_base_bg_color_disabled: hsl(204, 8%, 76%);
+$btn_base_font_color_disabled: hsl(211, 12%, 48%);
+
+// Primary button
+$btn_primary_bg_color_base: hsl(235, 100%, 46%);
+$btn_primary_bg_color_hover: hsl(239, 92%, 29%);
+$btn_primary_bg_color_focus: hsl(235, 100%, 46%);
+$btn_primary_bg_color_active: hsl(203, 100%, 56%);
+$btn_primary_font_color_base: hsl(0, 100%, 100%);
+
+// Secondary button
+$btn_secondary_bg_color_base: hsl(126, 92%, 29%);
+$btn_secondary_bg_color_hover: hsl(126, 92%, 19%);
+$btn_secondary_bg_color_focus: hsl(126, 92%, 29%);
+$btn_secondary_bg_color_active: hsl(126, 62%, 48%);
+$btn_secondary_font_color_base: hsl(0, 100%, 100%);
+
+.gc-btn {
+  border: $btn_base_border;
+  border-radius: $btn_base_border_radius;
+  padding: $btn_base_padding_vertical $btn_base_padding_horizontal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+
+  &:focus-visible {
+    outline: 2px solid rgb(0, 0, 0);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &[disabled]{
+    background: $btn_base_bg_color_disabled;
+    cursor: not-allowed;
+  }
+}
+
+.gc-btn__text {
+  font-size: $btn_base_font_size;
+  vertical-align: top;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.gc-btn--primary {
+  background-color: $btn_primary_bg_color_base;
+  color: $btn_primary_font_color_base;
+
+  &:hover {
+    background-color: $btn_primary_bg_color_hover;
+  }
+
+  &:active {
+    background-color: $btn_primary_bg_color_active;
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: $btn_base_bg_color_disabled;
+    color: $btn_base_font_color_disabled;
+  }
+}
+
+.gc-btn--secondary {
+  background-color: $btn_secondary_bg_color_base;
+  color: $btn_secondary_font_color_base;
+
+  &:hover {
+    background-color: $btn_secondary_bg_color_hover;
+  }
+
+  &:active {
+    background-color: $btn_secondary_bg_color_active;
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: $btn_base_bg_color_disabled;
+    color: $btn_base_font_color_disabled;
+  }
+}
