@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
-import { UsersService } from '../store/users/users-service/users.service';
-import { UsersQuery } from '../store/users/users-query/users.query';
-import { UsersStore } from '../store/users/users-store/users.store';
+import { UsersService } from '../../store/users/users.service';
+import { UsersQuery } from '../../store/users/users.query';
+import { UsersStore } from '../../store/users/users.store';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,12 +10,37 @@ import { Observable } from 'rxjs';
   templateUrl: 'my-users.component.html',
   styleUrls: ['my-users.component.scss'],
 })
-export class MyUsersComponent {
+export class MyUsersComponent implements OnInit {
   usersList: UserInterface[] = [];
   selectedUser: UserInterface | null;
   usersListChanged$: Observable<UserInterface[]> = this.usersQuery.select('usersList');
+  userWasSelected$: Observable<UserInterface> = this.usersQuery.select('selectedUser');
 
-  constructor(private usersService: UsersService, private usersQuery: UsersQuery, private usersStore: UsersStore) {
+  constructor(private usersService: UsersService, private usersQuery: UsersQuery, private usersStore: UsersStore) {}
+
+  ngOnInit(): void {
+    this.checkUsersListChanged();
+    this.checkUserWasSelected();
+  }
+
+  getUsers(): void {
+    this.usersService.getUsers();
+  }
+
+  closeCard(): void {
+    this.usersService.updateSelectedUser({} as UserInterface);
+  }
+
+  chooseUser(userId: string): void {
+    const user = this.usersList.find((user) => user.id === userId);
+    if (user) this.usersService.updateSelectedUser(user);
+  }
+
+  checkIsUserChosen(): boolean {
+    return !!this.usersQuery.getValue().selectedUser.id;
+  }
+
+  private checkUsersListChanged(): void {
     this.usersListChanged$.subscribe({
       next: (users: UserInterface[]) => {
         this.usersList = users;
@@ -23,24 +48,15 @@ export class MyUsersComponent {
     });
   }
 
-  getUsers(): void {
-    this.usersService.getUsers();
+  private checkUserWasSelected(): void {
+    this.userWasSelected$.subscribe({
+      next: (user: UserInterface) => {
+        this.selectedUser = user;
+      },
+    });
   }
 
   get isUsersListExist(): boolean {
     return !!this.usersList.length;
-  }
-
-  closeCard(): void {
-    this.usersService.updateSelectedUser(null);
-    this.setSelectedUser();
-  }
-
-  checkIsUserChosen(): boolean {
-    return !!this.usersQuery.getValue().selectedUser;
-  }
-
-  private setSelectedUser(): void {
-    this.selectedUser = this.usersStore.getValue().selectedUser;
   }
 }

@@ -2,10 +2,10 @@ import { Injectable, OnDestroy, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, Subject } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
-import { UserInterface } from '../../../../interfaces/user.interface';
-import { UsersStore } from '../users-store/users.store';
-import { UsersQuery } from '../users-query/users.query';
-import { API_USERS } from '../../../../constans/api.constans';
+import { UserInterface } from '../../interfaces/user.interface';
+import { UsersStore } from './users.store';
+import { UsersQuery } from './users.query';
+import { API_USERS } from '../../constans/api.constans';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService implements OnDestroy {
@@ -26,7 +26,7 @@ export class UsersService implements OnDestroy {
       });
   }
 
-  updateSelectedUser(user: UserInterface | null): void {
+  updateSelectedUser(user: UserInterface): void {
     this.selectedUsersStore.update({ selectedUser: user });
   }
 
