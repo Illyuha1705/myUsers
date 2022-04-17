@@ -3,5 +3,8 @@
  */
 
 /* Atoms */
-// @ts-ignore
-export * from '@my-users/generic-components/src/lib/atoms';
+
+export * from 'projects/generic-components/src/lib/atoms/atom-button/atom-button.component'
+export * from 'projects/generic-components/src/lib/atoms/atom-button/atom-button.module'
+
+export * from 'projects/generic-components/src/lib/atoms/atoms.module'

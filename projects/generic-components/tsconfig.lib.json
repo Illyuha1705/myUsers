@@ -7,9 +7,6 @@
     "declarationMap": true,
     "inlineSources": true,
     "types": [],
-    "paths": {
-      "@my-users/generic-components/src/lib/atoms":["projects/generic-components/src/atoms/public-api.ts"]
-    }
   },
   "exclude": [
     "src/test.ts",
