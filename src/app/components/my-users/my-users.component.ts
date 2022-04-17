@@ -3,28 +3,32 @@ import { UserInterface } from '../../interfaces/user.interface';
 import { UsersService } from '../store/users/users-service/users.service';
 import { UsersQuery } from '../store/users/users-query/users.query';
 import { UsersStore } from '../store/users/users-store/users.store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-users',
   templateUrl: 'my-users.component.html',
   styleUrls: ['my-users.component.scss'],
 })
-export class MyUsersComponent implements OnInit {
+export class MyUsersComponent {
   usersList: UserInterface[] = [];
   selectedUser: UserInterface | null;
+  usersListChanged$: Observable<UserInterface[]> = this.usersQuery.select('usersList');
 
-  constructor(
-    private usersService: UsersService,
-    private usersQuery: UsersQuery,
-    private usersStore: UsersStore,
-  ) {}
-
-  ngOnInit(): void {
-    this.checkIsUsersListChanged();
+  constructor(private usersService: UsersService, private usersQuery: UsersQuery, private usersStore: UsersStore) {
+    this.usersListChanged$.subscribe({
+      next: (users: UserInterface[]) => {
+        this.usersList = users;
+      },
+    });
   }
 
-  public getUsers(): void {
+  getUsers(): void {
     this.usersService.getUsers();
+  }
+
+  get isUsersListExist(): boolean {
+    return !!this.usersList.length;
   }
 
   closeCard(): void {
@@ -34,18 +38,6 @@ export class MyUsersComponent implements OnInit {
 
   checkIsUserChosen(): boolean {
     return !!this.usersQuery.getValue().selectedUser;
-  }
-
-  private setUsersList(): void {
-    this.usersList = this.usersQuery.getValue().usersList;
-  }
-
-    private checkIsUsersListChanged(): void {
-    this.usersService.usersListWasUpdated$.subscribe({
-      next: () => {
-        this.setUsersList();
-      },
-    });
   }
 
   private setSelectedUser(): void {

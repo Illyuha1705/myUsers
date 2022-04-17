@@ -12,7 +12,6 @@ export class AtomButtonComponent {
   @Input() ariaLabel: string | undefined;
 
   @HostBinding('class') get bindClasses(): string {
-    console.log(1)
     return `gc-btn gc-btn--${this.btnType}`;
   }
 

@@ -4,7 +4,7 @@ $users_list_user_hover_background_color: hsl(180, 100%, 94%);
 .users-list {
   margin: 25px 0;
   width: 300px;
-  box-shadow: 1px 0 0 $users_list_color_grey,  -1px 0 0 $users_list_color_grey;
+  box-shadow: 1px 0 0 $users_list_color_grey, -1px 0 0 $users_list_color_grey;
 }
 
 .users-list__user {
@@ -12,7 +12,7 @@ $users_list_user_hover_background_color: hsl(180, 100%, 94%);
   border-bottom: 1px solid $users_list_color_grey;
   height: 48px;
   width: 100%;
-  padding: 5px 10px;
+  padding: 5px 0;
   white-space: nowrap;
   cursor: pointer;
 
