@@ -1,6 +1,8 @@
 <section class="users">
   <div class="users-wrapper">
-    <button gc-button btnType="secondary" (click)="getUsers()" [disabled]="isUsersListExist">get</button>
+    <button gc-button btnType="secondary" (click)="getUsers()" [disabled]="isUsersListExist">
+      {{ 'APP.MY_USERS.BUTTON.GET' | translate }}
+    </button>
   </div>
 
   <ul class="users-list" *ngIf="isUsersListExist">
@@ -10,9 +12,5 @@
     </li>
   </ul>
 
-  <gc-card
-    *ngIf="checkIsUserChosen()"
-    [user]="selectedUser"
-    (closeButtonWasClicked$)="closeCard()"
-  ></gc-card>
+  <gc-card *ngIf="checkIsUserChosen()" [user]="selectedUser" (closeButtonWasClicked$)="closeCard()"></gc-card>
 </section>

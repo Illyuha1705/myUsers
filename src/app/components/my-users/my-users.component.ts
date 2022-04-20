@@ -4,6 +4,7 @@ import { UsersService } from '../../store/users/users.service';
 import { UsersQuery } from '../../store/users/users.query';
 import { UsersStore } from '../../store/users/users.store';
 import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-users',
@@ -16,7 +17,14 @@ export class MyUsersComponent implements OnInit {
   usersListChanged$: Observable<UserInterface[]> = this.usersQuery.select('usersList');
   userWasSelected$: Observable<UserInterface> = this.usersQuery.select('selectedUser');
 
-  constructor(private usersService: UsersService, private usersQuery: UsersQuery, private usersStore: UsersStore) {}
+  constructor(
+    private usersService: UsersService,
+    private usersQuery: UsersQuery,
+    private usersStore: UsersStore,
+    private translate: TranslateService
+  ) {
+    translate.setDefaultLang('ua');
+  }
 
   ngOnInit(): void {
     this.checkUsersListChanged();
@@ -38,6 +46,10 @@ export class MyUsersComponent implements OnInit {
 
   checkIsUserChosen(): boolean {
     return !!this.usersQuery.getValue().selectedUser.id;
+  }
+
+  useLanguage(language: string): void {
+    this.translate.use(language);
   }
 
   private checkUsersListChanged(): void {
