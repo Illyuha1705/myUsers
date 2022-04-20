@@ -3,14 +3,12 @@
     <button gc-button btnType="secondary" (click)="getUsers()" [disabled]="isUsersListExist">get</button>
   </div>
 
-  <ng-template [ngIf]="isUsersListExist">
-    <ul class="users-list">
-      <li *ngFor="let user of usersList" class="users-list__user" (click)="chooseUser(user.id)">
-        <h4 class="user-name">{{ user.name }}</h4>
-        <span class="user-email">{{ user.email }}</span>
-      </li>
-    </ul>
-  </ng-template>
+  <ul class="users-list" *ngIf="isUsersListExist">
+    <li *ngFor="let user of usersList" class="users-list__user" (click)="chooseUser(user.id)">
+      <h4 class="user-name">{{ user.name }}</h4>
+      <span class="user-email">{{ user.email }}</span>
+    </li>
+  </ul>
 
   <gc-card
     *ngIf="checkIsUserChosen()"
