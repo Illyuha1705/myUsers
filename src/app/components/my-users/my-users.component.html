@@ -5,12 +5,12 @@
     </button>
   </div>
 
-  <ul class="users-list" *ngIf="isUsersListExist">
-    <li *ngFor="let user of usersList" class="users-list__user" (click)="chooseUser(user.id)">
+  <ul class="users-list" *ngIf="usersList$ | async as userList">
+    <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
       <h4 class="user-name">{{ user.name }}</h4>
       <span class="user-email">{{ user.email }}</span>
     </li>
   </ul>
 
-  <gc-card *ngIf="checkIsUserChosen()" [user]="selectedUser" (closeButtonWasClicked$)="closeCard()"></gc-card>
+  <gc-card *ngIf="checkIsUserChosen()" [user]="selectedUser$ | async" (closeButtonWasClicked$)="closeCard()"></gc-card>
 </section>

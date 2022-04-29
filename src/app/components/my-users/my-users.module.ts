@@ -6,7 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpLoaderFactory } from  '../../helpers/ngx-translate';
+import { HttpLoaderFactory } from '../../helpers/ngx-translate';
+import { UsersService } from '../../services/users-service/users.service';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -25,6 +26,7 @@ import { HttpLoaderFactory } from  '../../helpers/ngx-translate';
       extend: true,
     }),
   ],
+  providers: [UsersService],
   exports: [MyUsersComponent],
 })
 export class MyUsersModule {}
