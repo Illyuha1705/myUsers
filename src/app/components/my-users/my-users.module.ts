@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpLoaderFactory } from '../../helpers/ngx-translate';
 import { UsersService } from '../../services/users-service/users.service';
+import { UsersStoreModule } from '../../store/users/users-store.module';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -17,6 +17,7 @@ import { UsersService } from '../../services/users-service/users.service';
     BrowserModule,
     HttpClientModule,
     MoleculesModule,
+    UsersStoreModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

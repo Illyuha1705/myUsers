@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { API_USERS } from '../../constans/api.constans';
-import { filter, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { UsersStoreService } from '../../store/users/users-store.service';

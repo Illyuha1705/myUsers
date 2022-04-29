@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { UsersStore } from './users.store';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class UsersStoreService {
 
   constructor(private selectedUsersStore: UsersStore) {}
