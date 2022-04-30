@@ -23,7 +23,7 @@ export function createInitialState(): UsersState {
 
 @Injectable()
 @StoreConfig({ name: 'UsersState' })
-export class UsersStore extends Store<UsersState> {
+export class UsersStoreStore extends Store<UsersState> {
   constructor() {
     super(createInitialState());
   }
