@@ -7,7 +7,7 @@ $card_base_text_weight: 700;
 $card_header_height: 48px;
 $card_header_padding: 5px 10px;
 
-.card-body {
+.card {
   width: $card_base_width;
   height: $card_base_height;
   border: $card_base_border;
@@ -17,7 +17,7 @@ $card_header_padding: 5px 10px;
   transform: translate(-50%, -50%);
 }
 
-.card-header {
+.card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,25 +26,25 @@ $card_header_padding: 5px 10px;
   padding: $card_header_padding;
 }
 
-.header-title__text {
+.header__title {
   font-weight: $card_base_text_weight;
 }
 
-.content-header {
+.card__content {
+  padding: $card_base_padding;
+}
+
+.card__content-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: $card_base_padding;
 }
 
-.card-content {
-  padding: $card_base_padding;
-}
-
-.user-name {
+.card__info-name {
   font-weight: $card_base_text_weight;
 }
 
-.user-info {
+.card__info {
   padding: $card_base_padding;
 }

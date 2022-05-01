@@ -1,8 +1,11 @@
 $users_list_color_grey: hsl(204, 8%, 76%);
 $users_list_user_hover_background_color: hsl(180, 100%, 94%);
 
-.users-list {
+.users__list {
   margin: 25px 0;
+}
+
+.users-list {
   width: 300px;
   box-shadow: 1px 0 0 $users_list_color_grey, -1px 0 0 $users_list_color_grey;
 }

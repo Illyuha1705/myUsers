@@ -1,14 +1,13 @@
 <section class="users">
-  <div class="users-wrapper">
+  <div class="users__wrapper">
     <button gc-button btnType="secondary" (click)="getUsers()" [disabled]="isUsersListExist">
       {{ 'APP.MY_USERS.BUTTON.GET' | translate }}
     </button>
   </div>
 
-  <ul class="users-list" *ngIf="usersList$ | async as userList">
+  <ul class="users-list users__list" *ngIf="usersList$ | async as userList">
     <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
-      <h4 class="user-name">{{ user.name }}</h4>
-      <span class="user-email">{{ user.email }}</span>
+      <h4 class="users-list__title">{{ user.name }}</h4>
     </li>
   </ul>
 
