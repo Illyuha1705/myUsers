@@ -10,6 +10,8 @@ export class MoleculeCardComponent {
   @Output() closeButtonWasClicked$: EventEmitter<void> = new EventEmitter<void>();
   @Input() user: UserInterface;
 
+  imgPath = 'email.svg';
+
   closeCard(): void {
     this.closeButtonWasClicked$.emit();
   }

@@ -1,6 +1,5 @@
-$card_base_width: 350px;
-$card_base_height: 300px;
-$card_base_border: 1px solid hsl(179, 100%, 58%);
+$card_base_width: 339px;
+$card_base_height: 302px;
 $card_base_padding: 10px;
 $card_base_text_weight: 700;
 
@@ -10,7 +9,8 @@ $card_header_padding: 5px 10px;
 .card {
   width: $card_base_width;
   height: $card_base_height;
-  border: $card_base_border;
+  background: #243034;
+  padding: 25px 29px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,30 +21,101 @@ $card_header_padding: 5px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: $card_base_border;
-  height: $card_header_height;
-  padding: $card_header_padding;
 }
 
 .header__title {
-  font-weight: $card_base_text_weight;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.header__btn-close {
+  background: url('../../../../assets/img/close.svg') center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  cursor: pointer;
 }
 
 .card__content {
-  padding: $card_base_padding;
+  padding: 20px 0 15px 0;
 }
 
-.card__content-header {
+.content__header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: $card_base_padding;
+  margin: 0 0 15px;
 }
 
-.card__info-name {
-  font-weight: $card_base_text_weight;
+.content__photo {
+  width: 96px;
+  height: 96px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.card__info {
-  padding: $card_base_padding;
+.content__inner {
+  padding: 0 0 0 20px;
+  color: white;
+}
+
+.content__username {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.content__name {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.content__email {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 24px;
+  color: white;
+}
+
+.email__img {
+  width: 17px;
+  height: 17px;
+  margin: 0 15px 0 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content__phone {
+  font-size: 14px;
+  line-height: 24px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin: 10px 0 15px;
+}
+
+.phone__img {
+  width: 17px;
+  height: 17px;
+  margin: 0 15px 0 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content__website {
+  font-size: 14px;
+  line-height: 24px;
+  color: #009EDD;
+  text-decoration: none;
+  margin-left: 32px;
 }

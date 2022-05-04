@@ -81,13 +81,21 @@
     "generic-components": {
       "projectType": "library",
       "root": "projects/generic-components",
-      "sourceRoot": "projects/generic-components/src",
+      "sourceRoot": "projects/generic-components/src/lib",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/generic-components/ng-package.json"
+            "project": "projects/generic-components/ng-package.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "./projects/generic-components/src/assets/",
+                "output": "/assets/"
+              }
+            ],
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
