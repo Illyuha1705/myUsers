@@ -26,7 +26,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "projects/generic-components/assets/",
+                "output": "/assets/"
+              }
+            ],
             "styles": ["src/styles.scss"]
           },
           "configurations": {
@@ -81,21 +89,13 @@
     "generic-components": {
       "projectType": "library",
       "root": "projects/generic-components",
-      "sourceRoot": "projects/generic-components/src/lib",
+      "sourceRoot": "projects/generic-components/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/generic-components/ng-package.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "./projects/generic-components/src/assets/",
-                "output": "/assets/"
-              }
-            ],
-            "styles": ["src/styles.scss"]
+            "project": "projects/generic-components/ng-package.json"
           },
           "configurations": {
             "production": {
