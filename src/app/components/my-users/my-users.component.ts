@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { UsersStoreService } from '../../store/users/users-store.service';
 import { UsersStoreQuery } from '../../store/users/users-store.query';
@@ -23,9 +23,7 @@ export class MyUsersComponent {
     private usersStore: UsersStoreStore,
     private translate: TranslateService,
     private usersService: UsersService
-  ) {
-    translate.setDefaultLang('ua');
-  }
+  ) {}
 
   getUsers(): void {
     this.usersService.getUsers();

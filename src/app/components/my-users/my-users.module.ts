@@ -18,14 +18,7 @@ import { UsersStoreModule } from '../../store/users/users-store.module';
     HttpClientModule,
     MoleculesModule,
     UsersStoreModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-      extend: true,
-    }),
+    TranslateModule,
   ],
   providers: [UsersService],
   exports: [MyUsersComponent],
