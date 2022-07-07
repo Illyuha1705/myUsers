@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ApplicationInitializerService } from './application-initializer.service';
 import { applicationInitializerFactory } from './application-initializer.factory';
 import { TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../helpers/ngx-translate';
+import { HttpLoaderFactory } from '../utils/ngx-translate';
 
 @NgModule({
   providers: [
