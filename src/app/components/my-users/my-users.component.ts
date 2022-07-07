@@ -1,52 +1,60 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { UsersStoreService } from '../../store/users/users-store.service';
-import { UsersStoreQuery } from '../../store/users/users-store.query';
-import { UsersStoreStore } from '../../store/users/users-store.store';
 import { Observable, Subject } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
 import { UsersService } from '../../services/users-service/users.service';
-import { catchError, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { UsersStoreQuery } from '../../store/users/users-store.query';
 
 @Component({
   selector: 'app-my-users',
   templateUrl: 'my-users.component.html',
   styleUrls: ['my-users.component.scss'],
 })
-export class MyUsersComponent {
-  usersList$: Observable<UserInterface[]> = this.usersStoreService.hasUsers$();
-  selectedUser$: Observable<UserInterface> = this.usersStoreService.hasSelectedUser$();
+export class MyUsersComponent implements OnDestroy {
+  usersList$: Observable<UserInterface[]> = this.usersStoreService.hasUsers$;
+  selectedUser$: Observable<UserInterface> = this.usersStoreService.hasSelectedUser$;
+  private destroy$: Subject<void> = new Subject();
 
   constructor(
     private usersStoreService: UsersStoreService,
     private usersQuery: UsersStoreQuery,
-    private usersStore: UsersStoreStore,
-    private translate: TranslateService,
     private usersService: UsersService
   ) {}
 
   getUsers(): void {
-    this.usersService.getUsers();
+    this.usersService
+      .getUsers()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (users: UserInterface[]) => {
+          this.usersStoreService.setUsersList(users);
+        },
+        error: () => {
+          alert('There is no user');
+        },
+      });
   }
 
   closeCard(): void {
-    this.usersStoreService.updateSelectedUser({} as UserInterface);
+    this.usersStoreService.resetSelectedUser();
   }
 
   chooseUser(userId: string): void {
-    const user = this.usersStoreService.getUserById(userId);
-    if (user) this.usersStoreService.updateSelectedUser(user);
+    const user: UserInterface | null = this.usersStoreService.getUserById(userId);
+    if (user) this.usersStoreService.setSelectedUser(user);
   }
 
   checkIsUserChosen(): boolean {
     return !!this.usersQuery.selectedUser.id;
   }
 
-  useLanguage(language: string): void {
-    this.translate.use(language);
+  get isUsersListExist(): boolean | null {
+    return this.usersQuery.usersLength ? true : null;
   }
 
-  get isUsersListExist(): boolean {
-    return !!this.usersQuery.usersLength;
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

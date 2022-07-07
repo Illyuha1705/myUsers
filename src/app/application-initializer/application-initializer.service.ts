@@ -9,7 +9,7 @@ export class ApplicationInitializerService {
   public init(): Promise<void> {
     this.translate.setDefaultLang('ua');
     return new Promise<void>((resolve) => {
-      console.log('Initializer works')
+      console.log('Initializer works');
       resolve();
     });
   }

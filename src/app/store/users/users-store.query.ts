@@ -1,7 +1,7 @@
 import { Query } from '@datorama/akita';
 import { UsersState, UsersStoreStore } from './users-store.store';
 import { Injectable } from '@angular/core';
-import {UserInterface} from "../../interfaces/user.interface";
+import { UserInterface } from '../../interfaces/user.interface';
 
 @Injectable()
 export class UsersStoreQuery extends Query<UsersState> {

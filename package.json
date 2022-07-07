@@ -9,6 +9,16 @@
     "test": "ng test",
     "lint": "ng lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --relative"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.2",
@@ -24,6 +34,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/lodash": "^4.14.181",
+    "eslint-plugin-node": "^11.1.0",
     "lodash": "^4.17.21",
     "rxjs": "~7.5.5",
     "tslib": "^2.3.1",
@@ -50,6 +61,9 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-rxjs": "^5.0.2",
     "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^13.0.3",
     "ng-packagr": "^13.0.0",
     "prettier": "^2.6.2",
     "promise": "^8.1.0",

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../../helpers/ngx-translate';
+import { HttpLoaderFactory } from '../../utils/ngx-translate';
 import { UsersService } from '../../services/users-service/users.service';
 import { UsersStoreModule } from '../../store/users/users-store.module';
 
