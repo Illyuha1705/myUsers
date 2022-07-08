@@ -31,7 +31,7 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "projects/generic-components/assets/",
+                "input": "projects/generic-components/src/assets/",
                 "output": "/assets/"
               }
             ],

@@ -1,44 +1,54 @@
+$white_color: hsl(0, 0%, 100%);
+
 $users_list_color_grey: hsl(204, 8%, 76%);
-$users_list_user_hover_background_color: hsl(180, 100%, 94%);
+$users_list_user_hover_background_color: hsl(197, 87%, 39%);
+
+$users_background_color: hsl(200, 5%, 12%);
+
+$users_list_margin: 25px 0;
+$users_list_base_font_size: 16px;
+$users_list_base_line_height: 24px;
+$users_list_base_text_shadow: 0 0 0.5px;
+$users_list_title_padding: 23px 20px;
+
+$user_height: 70px;
+$user_width: 280px;
+$user_logo_size: 50px;
+$user_logo_padding: 10px 0 10px 10px;
 
 .users {
-  background: #1C1E1F;
+  background-color: $users_background_color;
   height: 100%;
 }
 
 .users__list {
-  margin: 25px 0;
+  margin: $users_list_margin;
 }
 
 .users-list__user {
-  width: 280px;
-  height: 70px;
+  width: $user_width;
+  height: $user_height;
   display: flex;
   align-items: center;
-  font-size: 16px;
-  line-height: 24px;
-  color: white;
+  font-size: $users_list_base_font_size;
+  line-height: $users_list_base_line_height;
+  color: $white_color;
   white-space: nowrap;
   cursor: pointer;
 
   &:hover {
-    background-color: #0D8ABC;
-    text-shadow: 0 0 0.5px;
+    background-color: $users_list_user_hover_background_color;
+    text-shadow: $users_list_base_text_shadow;
     outline: none;
   }
 }
 
 .users-list__logo {
-  width: 50px;
-  height: 50px;
-  padding: 10px 0 10px 10px;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  width: $user_logo_size;
+  height: $user_logo_size;
+  padding: $user_logo_padding;
 }
 
 .users-list__title {
-  padding: 23px 20px;
+  padding: $users_list_title_padding;
 }
