@@ -4,6 +4,10 @@
       "BUTTON": {
         "GET": "Get"
       }
+    },
+    "PAGE_NOT_FOUND": {
+      "404": "404",
+      "MESSAGE": "You came to the wrong neighborhood"
     }
   }
 }
