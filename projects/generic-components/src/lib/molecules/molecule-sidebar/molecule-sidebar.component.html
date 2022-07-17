@@ -1,0 +1,18 @@
+<aside class="sidebar">
+  <div class="sidebar__section sidebar__header">
+    <div class="sidebar__burger">
+      <span class="sidebar__burger-item"></span>
+      <span class="sidebar__burger-item"></span>
+      <span class="sidebar__burger-item"></span>
+    </div>
+  </div>
+  <div class="sidebar__section">
+    <ul class="sidebar__menu">
+      <gc-nav-item
+        *ngFor="let menuItem of menuItemsChanged$ | async; let i = index"
+        [navigationItem]="menuItem"
+        (click)="onNavItemClick('navItem-' + i)"
+      ></gc-nav-item>
+    </ul>
+  </div>
+</aside>

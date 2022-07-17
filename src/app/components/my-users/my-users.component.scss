@@ -18,7 +18,8 @@ $user_logo_padding: 10px 0 10px 10px;
 
 .users {
   background-color: $users_background_color;
-  height: 100%;
+  height: 100vh;
+  max-height: 100vh;
   overflow-y: auto;
 }
 
@@ -30,7 +31,8 @@ $user_logo_padding: 10px 0 10px 10px;
 }
 
 .users__list {
-  margin: $users_list_margin;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .users-list__user {
