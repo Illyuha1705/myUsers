@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { UsersStoreService } from '../../store/users/users-store.service';
 import { Observable, Subject } from 'rxjs';
@@ -11,7 +11,7 @@ import { UsersStoreQuery } from '../../store/users/users-store.query';
   templateUrl: 'my-users.component.html',
   styleUrls: ['my-users.component.scss'],
 })
-export class MyUsersComponent implements OnDestroy {
+export class MyUsersComponent implements OnInit, OnDestroy {
   usersList$: Observable<UserInterface[]> = this.usersStoreService.hasUsers$;
   selectedUser$: Observable<UserInterface> = this.usersStoreService.hasSelectedUser$;
   private destroy$: Subject<void> = new Subject();
@@ -21,6 +21,10 @@ export class MyUsersComponent implements OnDestroy {
     private usersQuery: UsersStoreQuery,
     private usersService: UsersService
   ) {}
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
 
   getUsers(): void {
     this.usersService

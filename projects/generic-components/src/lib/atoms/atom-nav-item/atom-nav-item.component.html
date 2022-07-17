@@ -1,0 +1,10 @@
+<ng-container *ngIf="navigationItem">
+  <li class="menu-item">
+    <button href="#" class="menu-item__button">
+      <div class="menu-item__icon">
+        <img src="./assets/img/users-avatar.png" alt="user avatar" />
+      </div>
+      <span class="menu-item__text">{{ navigationItemLink.name | translate }}</span>
+    </button>
+  </li>
+</ng-container>

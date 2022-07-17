@@ -6,6 +6,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from './utils/ngx-translate';
 import { HttpClient } from '@angular/common/http';
 import { ApplicationInitializerModule } from './application-initializer/application-initializer.module';
+import { NavigationSchemaService } from './navigation/services/navigation-schema.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { ApplicationInitializerModule } from './application-initializer/applicat
       extend: true,
     }),
   ],
+  providers: [NavigationSchemaService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

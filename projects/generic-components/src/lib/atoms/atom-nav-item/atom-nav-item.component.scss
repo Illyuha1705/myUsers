@@ -1,0 +1,32 @@
+.menu-item {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(41, 46, 52);
+  padding: 7px 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu-item__button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: gray;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-item__icon {
+  width: 25px;
+  height: 25px;
+}
+
+.menu-item__text {
+  overflow: hidden;
+  font-size: 12px;
+  padding: 2px 0;
+}

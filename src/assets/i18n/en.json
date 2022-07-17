@@ -8,6 +8,18 @@
     "PAGE_NOT_FOUND": {
       "404": "404",
       "MESSAGE": "You came to the wrong neighborhood"
+    },
+    "SIDEBAR": {
+      "ALL_CHATS": {
+        "LABEL": "All Chats"
+      },
+      "PRIVATE_CHATS": {
+        "LABEL": "Private chats",
+        "ICON_PATH": ""
+      },
+      "EDIT": {
+        "LABEL": "Edit"
+      }
     }
   }
 }
