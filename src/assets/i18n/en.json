@@ -2,7 +2,7 @@
   "APP": {
     "MY_USERS": {
       "BUTTON": {
-        "GET": "Get"
+        "GET": "Get users"
       }
     },
     "PAGE_NOT_FOUND": {

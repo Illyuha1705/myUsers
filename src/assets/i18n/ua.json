@@ -2,7 +2,7 @@
   "APP": {
     "MY_USERS": {
       "BUTTON": {
-        "GET": "Отримати"
+        "GET": "Отримати користувачів"
       }
     },
     "PAGE_NOT_FOUND": {

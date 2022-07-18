@@ -3,9 +3,8 @@ import { MyUsersComponent } from './my-users.component';
 import { AtomsModule, MoleculesModule } from '@my-users/generic-components';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../../utils/ngx-translate';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 import { UsersService } from '../../services/users-service/users.service';
 import { UsersStoreModule } from '../../store/users/users-store.module';
 
