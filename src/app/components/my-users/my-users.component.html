@@ -1,5 +1,5 @@
 <section class="users">
-  <div class="users__title"><h1></h1></div>
+  <h1 class="users__title">Users - official page</h1>
   <div class="users__wrapper">
     <button gc-button btnType="secondary" (click)="getUsers()" [disabled]="isUsersListExist">
       {{ 'APP.MY_USERS.BUTTON.GET' | translate }}
@@ -9,7 +9,7 @@
   <ul class="users__list users-list" *ngIf="usersList$ | async as userList">
     <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
       <div class="users-list__logo">
-        <img src="../../../assets/img/users-avatar.png" alt="user avatar">
+        <img src="../../../assets/img/users-avatar.png" alt="current user photo">
       </div>
       <h4 class="users-list__title">{{ user.name }}</h4>
     </li>

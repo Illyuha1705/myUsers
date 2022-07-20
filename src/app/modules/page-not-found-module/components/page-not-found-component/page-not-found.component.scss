@@ -61,7 +61,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   }
 }
 
-.cat__ears-right {
+.cat__ears_right {
   transform: rotateZ(15deg);
 
   &:before {
@@ -75,7 +75,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   }
 }
 
-.cat__ears-left {
+.cat__ears_left {
   transform: rotateY(180deg) rotateZ(15deg);;
 
   &:before {
@@ -104,13 +104,13 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   overflow: hidden;
 }
 
-.cat__eyes-left {
+.cat__eyes_left {
   &:after {
     right: -5%;
   }
 }
 
-.cat__eyes-right {
+.cat__eyes_right {
   &:after {
     left: -5%;
   }

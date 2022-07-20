@@ -1,12 +1,13 @@
 import { Query } from '@datorama/akita';
-import { UsersState, UsersStoreStore } from './users-store.store';
+import { UsersStoreStore } from './users-store.store';
 import { Injectable } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
+import { UsersState } from '../../interfaces/user-state.interface';
 
 @Injectable()
 export class UsersStoreQuery extends Query<UsersState> {
-  constructor(protected store: UsersStoreStore) {
-    super(store);
+  constructor(protected usersStore: UsersStoreStore) {
+    super(usersStore);
   }
 
   get users(): UserInterface[] {

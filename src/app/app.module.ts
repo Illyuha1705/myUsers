@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { MyUsersModule } from './components/my-users/my-users.module';
 import { AppRoutingModule } from './app.routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from './utils/ngx-translate.util';
+import { TranslateLoaderFactory } from './utils/ngx-translate.util';
 import { HttpClient } from '@angular/common/http';
 import { ApplicationInitializerModule } from './application-initializer/application-initializer.module';
 
@@ -16,7 +16,7 @@ import { ApplicationInitializerModule } from './application-initializer/applicat
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: TranslateLoaderFactory,
         deps: [HttpClient],
       },
       extend: true,

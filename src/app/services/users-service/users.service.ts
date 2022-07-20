@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
-import { API_USERS } from '../../constants/api.constants';
+import { API_USERS } from '../../constants/api.constant';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

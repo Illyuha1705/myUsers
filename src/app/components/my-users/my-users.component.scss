@@ -21,6 +21,13 @@ $user_logo_padding: 10px 0 10px 10px;
   height: 100%;
 }
 
+.users__title {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 .users__list {
   margin: $users_list_margin;
 }

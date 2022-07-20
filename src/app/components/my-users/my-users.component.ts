@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { UsersService } from '../../services/users-service/users.service';
 import { takeUntil } from 'rxjs/operators';
 import { UsersStoreQuery } from '../../store/users/users-store.query';
+import { UsersStateProps } from '../../interfaces/user-state.interface';
 
 @Component({
   selector: 'app-my-users',
@@ -18,7 +19,7 @@ export class MyUsersComponent implements OnDestroy {
 
   constructor(
     private usersStoreService: UsersStoreService,
-    private usersQuery: UsersStoreQuery,
+    private usersStoreQuery: UsersStoreQuery,
     private usersService: UsersService
   ) {}
 
@@ -28,7 +29,7 @@ export class MyUsersComponent implements OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (users: UserInterface[]) => {
-          this.usersStoreService.setUsersList(users);
+          this.usersStoreService.updateEntireUserState({ usersList: users, selectedUser: users[0] });
         },
         error: () => {
           alert('There is no user');
@@ -37,20 +38,20 @@ export class MyUsersComponent implements OnDestroy {
   }
 
   closeCard(): void {
-    this.usersStoreService.resetSelectedUser();
+    this.usersStoreService.updateUserState(UsersStateProps.selectedUser, {} as UserInterface);
   }
 
   chooseUser(userId: string): void {
     const user: UserInterface | null = this.usersStoreService.getUserById(userId);
-    if (user) this.usersStoreService.setSelectedUser(user);
+    if (user) this.usersStoreService.updateUserState(UsersStateProps.selectedUser, user);
   }
 
   checkIsUserChosen(): boolean {
-    return !!this.usersQuery.selectedUser.id;
+    return !!this.usersStoreQuery.selectedUser.id;
   }
 
   get isUsersListExist(): boolean | null {
-    return this.usersQuery.usersLength ? true : null;
+    return this.usersStoreQuery.usersLength ? true : null;
   }
 
   ngOnDestroy(): void {
