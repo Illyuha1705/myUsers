@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UserInterface } from '../../../../../../src/app/interfaces/user.interface';
+import { UserInterface } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'gc-card',
@@ -7,10 +7,10 @@ import { UserInterface } from '../../../../../../src/app/interfaces/user.interfa
   styleUrls: ['./molecule-card.component.scss'],
 })
 export class MoleculeCardComponent {
-  @Output() closeButtonWasClicked$: EventEmitter<void> = new EventEmitter<void>();
+  @Output() closeButtonWasClicked$: EventEmitter<string> = new EventEmitter<string>();
   @Input() user: UserInterface;
 
-  closeCard(): void {
-    this.closeButtonWasClicked$.emit();
+  closeCard(userId: string): void {
+    this.closeButtonWasClicked$.emit(userId);
   }
 }

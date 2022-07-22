@@ -5,7 +5,7 @@ $users_list_user_hover_background_color: hsl(197, 87%, 39%);
 
 $users_background_color: hsl(200, 5%, 12%);
 
-$users_list_margin: 25px 0;
+$users_list_margin: 25px 0 0;
 $users_list_base_font_size: 16px;
 $users_list_base_line_height: 24px;
 $users_list_base_text_shadow: 0 0 0.5px;
@@ -19,6 +19,7 @@ $user_logo_padding: 10px 0 10px 10px;
 .users {
   background-color: $users_background_color;
   height: 100%;
+  overflow-y: auto;
 }
 
 .users__title {

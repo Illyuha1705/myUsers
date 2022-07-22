@@ -6,7 +6,7 @@
 
     <button
       class="header__btn-close"
-      (click)="closeCard()"
+      (click)="closeCard(user.id)"
     ></button>
   </div>
 
@@ -33,7 +33,7 @@
       </div>
       <span>{{user.phone}}</span>
     </div>
-    <a href="https://github.com/Illyuha1705/myUsers" class="content__website">{{user.website}}</a>
+    <a [href]="user.website" class="content__website">{{user.website}}</a>
   </div>
 </div>
 

@@ -6,7 +6,7 @@ $page_not_found_background: hsl(200, 5%, 12%);
 
 $page_not_found_title_size: 10rem;
 $page_not_found_message_size: 2rem;
-$page_not_found_padding: 10% 0 0 0;
+$page_not_found_padding: 5% 0 0 0;
 
 $cat_width: 35vh;
 $cat_margin: 3rem auto;
@@ -173,6 +173,16 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   width: 4vh;
   height: 2vh;
   margin: auto;
+}
+
+.page-not-found__more-info {
+  background: none;
+  border: none;
+  color: $white_color;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 85px;
 }
 
 @keyframes eyes {
