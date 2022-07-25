@@ -19,5 +19,7 @@
     </div>
   </div>
 
-  <button class="page-not-found__more-info">More info</button>
+  <button class="page-not-found__more-info" [disabled]="disableShowMoreButton" (click)="showMoreInfoComponent()">More info</button>
 </section>
+
+<ng-template #moreInfo></ng-template>

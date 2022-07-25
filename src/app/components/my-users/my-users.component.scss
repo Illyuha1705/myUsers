@@ -1,7 +1,7 @@
 $white_color: hsl(0, 0%, 100%);
 
 $users_list_color_grey: hsl(204, 8%, 76%);
-$users_list_user_hover_background_color: hsl(197, 87%, 39%);
+$users_list_user_hover_background_color: hsl(212, 12%, 24%);
 
 $users_background_color: hsl(200, 5%, 12%);
 
@@ -11,8 +11,8 @@ $users_list_base_line_height: 24px;
 $users_list_base_text_shadow: 0 0 0.5px;
 $users_list_title_padding: 23px 20px;
 
-$user_height: 70px;
-$user_width: 280px;
+$user_height: 60px;
+$user_width: 100%;
 $user_logo_size: 50px;
 $user_logo_padding: 10px 0 10px 10px;
 
@@ -20,7 +20,6 @@ $user_logo_padding: 10px 0 10px 10px;
   background-color: $users_background_color;
   height: 100vh;
   max-height: 100vh;
-  overflow-y: auto;
 }
 
 .users__title {
@@ -30,9 +29,47 @@ $user_logo_padding: 10px 0 10px 10px;
   overflow: hidden;
 }
 
+.users__wrapper {
+  display: flex;
+}
+
+.search-input {
+  height: 7.7vh;
+  padding: 10px;
+}
+
+.search-input__control {
+  width: $user_width;
+  height: 100%;
+  background-color: #3d444c;
+  color: #ccd4d9;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+
 .users__list {
-  height: 100vh;
-  overflow-y: scroll;
+  height: 92.3vh;
+  min-width: 300px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 3.5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: hsl(207, 7%, 26%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: hsl(200, 4%, 54%);
+    border-radius: 25px;
+  }
+
+  &::-webkit-scrollbar-track:hover {
+    background: hsl(207, 6%, 32%);
+  }
 }
 
 .users-list__user {

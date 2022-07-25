@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit, Output} from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, Output } from '@angular/core';
 import { NavigationSchemaService } from '../../../../../../src/app/navigation/services/navigation-schema.service';
 import { MenuItem } from '../../../../../../src/app/navigation/models/navigation';
 import { Subject } from 'rxjs';
@@ -28,7 +28,6 @@ export class MoleculeSidebarComponent implements OnInit, AfterViewInit {
   }
 
   onNavItemClick(id: string): void {
-    console.log('click')
     if (id === 'navItem-0') this.allUsersChosen$.next();
   }
 

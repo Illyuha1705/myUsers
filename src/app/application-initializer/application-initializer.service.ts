@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { defaultLang } from '../constants/langs.constant';
+import { DEFAULT_LANG } from '../constants/langs.constant';
 
 @Injectable()
 export class ApplicationInitializerService {
   constructor(private translateService: TranslateService) {}
 
   public init(): Promise<void> {
-    this.translateService.setDefaultLang(defaultLang);
+    this.translateService.setDefaultLang(DEFAULT_LANG);
     return new Promise<void>((resolve) => {
       resolve();
     });

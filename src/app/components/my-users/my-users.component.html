@@ -3,21 +3,29 @@
   <div class="users__wrapper">
     <gc-sidebar (allUsersChosen$)="getUsers()"></gc-sidebar>
 
-    <ul class="users__list users-list" *ngIf="usersList$ | async as userList">
-      <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
-        <div class="users-list__logo">
-          <img src="../../../assets/img/users-avatar.png" alt="user avatar">
-        </div>
-        <h4 class="users-list__title">{{ user.name }}</h4>
-      </li>
-      <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
-        <div class="users-list__logo">
-          <img src="../../../assets/img/users-avatar.png" alt="user avatar">
-        </div>
-        <h4 class="users-list__title">{{ user.name }}</h4>
-      </li>
-    </ul>
+    <div class="users__second-column">
+      <div class="search-input">
+        <input type="text" placeholder="Search" class="search-input__control">
+      </div>
+
+      <ul class="users__list users-list" *ngIf="usersList$ | async as userList">
+        <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
+          <div class="users-list__logo">
+            <img src="../../../assets/img/users-avatar.png" alt="user avatar">
+          </div>
+          <h4 class="users-list__title">{{ user.name }}</h4>
+        </li>
+        <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
+          <div class="users-list__logo">
+            <img src="../../../assets/img/users-avatar.png" alt="user avatar">
+          </div>
+          <h4 class="users-list__title">{{ user.name }}</h4>
+        </li>
+      </ul>
+    </div>
+
+    <gc-card *ngIf="checkIsUserChosen()" [user]="selectedUser$ | async" (closeButtonWasClicked$)="closeCard()"></gc-card>
   </div>
 
-  <gc-card *ngIf="checkIsUserChosen()" [user]="selectedUser$ | async" (closeButtonWasClicked$)="closeCard()"></gc-card>
+
 </section>

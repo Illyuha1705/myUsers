@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { UsersStoreService } from '../../store/users/users-store.service';
 import { Observable, Subject } from 'rxjs';
@@ -35,9 +35,7 @@ export class MyUsersComponent implements OnInit, OnDestroy {
         next: (users: UserInterface[]) => {
           this.usersStoreService.updateEntireUserState({ usersList: users, selectedUser: users[0] });
         },
-        error: () => {
-          alert('There is no user');
-        },
+        error: () => alert('There is no user'),
       });
   }
 

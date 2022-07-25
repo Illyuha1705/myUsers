@@ -183,6 +183,11 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   text-decoration: underline;
   cursor: pointer;
   margin-top: 85px;
+
+  &:disabled {
+    cursor: default;
+    color: gray;
+  }
 }
 
 @keyframes eyes {

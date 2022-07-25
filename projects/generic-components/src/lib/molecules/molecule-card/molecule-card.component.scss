@@ -1,5 +1,5 @@
-$card_base_width: 339px;
-$card_base_height: 302px;
+$card_base_width: 100%;
+$card_base_height: 100%;
 $card_base_padding: 25px 29px;
 $card_base_text_weight: 700;
 $card_base_line_height: 24px;
@@ -21,15 +21,15 @@ $content_phone_margin: 10px 0 15px;
 $content_base_font_size: 14px;
 $content_website_margin: 0 0 0 32px;
 
+:host {
+  width: 100%;
+}
+
 .card {
   width: $card_base_width;
   height: $card_base_height;
   background: #243034;
   padding: $card_base_padding;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .card__header {
