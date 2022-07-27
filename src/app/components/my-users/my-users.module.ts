@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { UsersService } from '../../services/users-service/users.service';
 import { UsersStoreModule } from '../../store/users/users-store.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -18,6 +19,7 @@ import { UsersStoreModule } from '../../store/users/users-store.module';
     MoleculesModule,
     UsersStoreModule,
     TranslateModule,
+    FormsModule,
   ],
   providers: [UsersService],
   exports: [MyUsersComponent],

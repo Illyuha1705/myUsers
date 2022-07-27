@@ -8,10 +8,6 @@ export * from 'projects/generic-components/src/lib/atoms/atom-button/atom-button
 export * from 'projects/generic-components/src/lib/atoms/atom-button/atom-button.module';
 
 export * from 'projects/generic-components/src/lib/atoms/atoms.module';
-export * from 'projects/generic-components/src/lib/atoms/atom-nav-item/atom-nav-item.component';
-export * from 'projects/generic-components/src/lib/atoms/atom-nav-item/atom-nav-item.module';
-
-export * from 'projects/generic-components/src/lib/atoms/atoms.module';
 
 /* Molecules */
 

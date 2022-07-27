@@ -3,11 +3,16 @@
     "MY_USERS": {
       "BUTTON": {
         "GET": "Get users"
-      }
+      },
+      "TITLE": "Users - official page"
     },
     "PAGE_NOT_FOUND": {
       "404": "404",
-      "MESSAGE": "You came to the wrong neighborhood"
+      "MESSAGE": "You came to the wrong neighborhood",
+      "MORE_INFO": "More info"
+    },
+    "MORE_INFO": {
+      "PREVIOUS_URL": "You have tried to open page by URL: "
     },
     "SIDEBAR": {
       "ALL_CHATS": {

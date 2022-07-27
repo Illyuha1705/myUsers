@@ -1,5 +1,8 @@
 $white_color: hsl(0, 0%, 100%);
 
+$users_height: 100vh;
+$users_title_size: 0;
+
 $users_list_color_grey: hsl(204, 8%, 76%);
 $users_list_user_hover_background_color: hsl(212, 12%, 24%);
 
@@ -9,23 +12,23 @@ $users_list_margin: 25px 0 0;
 $users_list_base_font_size: 16px;
 $users_list_base_line_height: 24px;
 $users_list_base_text_shadow: 0 0 0.5px;
-$users_list_title_padding: 23px 20px;
+$users_list_title_padding: 20px;
 
-$user_height: 60px;
+$user_height: 65px;
 $user_width: 100%;
 $user_logo_size: 50px;
-$user_logo_padding: 10px 0 10px 10px;
+$user_logo_padding: 5px 0 5px 10px;
 
 .users {
   background-color: $users_background_color;
-  height: 100vh;
-  max-height: 100vh;
+  height: $users_height;
+  max-height: $users_height;
 }
 
 .users__title {
-  font-size: 0;
-  width: 0;
-  height: 0;
+  font-size: $users_title_size;
+  width: $users_title_size;
+  height: $users_title_size;
   overflow: hidden;
 }
 
@@ -34,15 +37,15 @@ $user_logo_padding: 10px 0 10px 10px;
 }
 
 .search-input {
-  height: 7.7vh;
-  padding: 10px;
+  height: 50px;
+  padding: 8px;
 }
 
 .search-input__control {
   width: $user_width;
   height: 100%;
-  background-color: #3d444c;
-  color: #ccd4d9;
+  background-color: hsl(212, 11%, 27%);
+  color: hsl(203, 15%, 83%);
   padding: 5px 10px;
   border: none;
   outline: none;
@@ -50,8 +53,8 @@ $user_logo_padding: 10px 0 10px 10px;
 }
 
 .users__list {
-  height: 92.3vh;
   min-width: 300px;
+  max-height: 93vh;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -81,11 +84,11 @@ $user_logo_padding: 10px 0 10px 10px;
   line-height: $users_list_base_line_height;
   color: $white_color;
   white-space: nowrap;
-  cursor: pointer;
 
   &:hover {
     background-color: $users_list_user_hover_background_color;
     text-shadow: $users_list_base_text_shadow;
+    cursor: pointer;
     outline: none;
   }
 }

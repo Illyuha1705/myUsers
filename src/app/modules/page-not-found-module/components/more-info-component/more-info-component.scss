@@ -1,30 +1,40 @@
 $white_color: hsl(0, 0%, 100%);
 
+$more_info_border_radius: 5px;
+$more_info_padding: 15px;
+
 $btn_close_size: 16px;
 
 .more-info {
   position: absolute;
   left: 50%;
-  bottom: 15%;
+  bottom: 30px;
   transform: translateX(-50%);
   height: 90px;
   width: 450px;
-  background-color: black;
-  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(223, 2%, 15%);
+  padding: $more_info_padding;
+  border-radius: $more_info_border_radius;
 }
 
 .more-info__message {
   color: $white_color;
+  line-height: 150%;
   text-align: center;
-  max-width: 90%;
   overflow: hidden;
+  max-width: 90%;
 }
 
 .more-info__btn-close {
+  background: url('../../../../../assets/img/close.svg') center;
+  width: $btn_close_size;
+  height: $btn_close_size;
   border: none;
   cursor: pointer;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: $more_info_padding;
+  top: $more_info_padding;
 }

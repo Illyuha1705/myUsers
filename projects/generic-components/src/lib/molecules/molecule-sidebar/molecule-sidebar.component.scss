@@ -1,3 +1,5 @@
+$white_color: hsl(0, 0%, 100%);
+
 .sidebar {
   max-height: 100vh;
   min-height: 100%;
@@ -8,7 +10,7 @@
   display: flex;
   flex-direction: column;
   width: 70px;
-  background-color: rgb(24, 25, 29);
+  background-color: hsl(228, 9%, 10%);
 }
 
 .sidebar__section {
@@ -28,7 +30,11 @@
 .sidebar__burger-item {
   width: 25px;
   height: 2px;
-  background-color: white;
+  background-color: $white_color;
   display: block;
   margin: 3.5px 0;
+}
+
+.disabled {
+  pointer-events: none;
 }

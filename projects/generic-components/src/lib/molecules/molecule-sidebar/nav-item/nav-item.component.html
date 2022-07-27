@@ -1,0 +1,15 @@
+<ng-container *ngIf="navigationItem">
+  <li
+    class="menu-item"
+    [routerLink]="['../my-users']"
+    [routerLinkActive]="['menu-item_active']"
+    [queryParams]="{ id: navigationItemLink.id }"
+  >
+    <button class="menu-item__button">
+      <div class="menu-item__icon">
+        <img src="../../../../assets/img/users-avatar.png" alt="user avatar" />
+      </div>
+      <span class="menu-item__text">{{ navigationItemLink.name | translate }}</span>
+    </button>
+  </li>
+</ng-container>

@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'my-users', component: MyUsersComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
-
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes), PageNotFoundModule],
   exports: [RouterModule],

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserInterface } from '../../interfaces/user.interface';
 import { UsersStoreService } from '../../store/users/users-store.service';
-import { Observable, Subject } from 'rxjs';
+import { combineLatest, Observable, of, Subject } from 'rxjs';
 import { UsersService } from '../../services/users-service/users.service';
 import { takeUntil } from 'rxjs/operators';
 import { UsersStoreQuery } from '../../store/users/users-store.query';
@@ -13,9 +13,11 @@ import { UsersStateProps } from '../../interfaces/user-state.interface';
   styleUrls: ['my-users.component.scss'],
 })
 export class MyUsersComponent implements OnInit, OnDestroy {
-  usersList$: Observable<UserInterface[]> = this.usersStoreService.hasUsers$;
+  usersList$: Observable<UserInterface[]>;
   selectedUser$: Observable<UserInterface> = this.usersStoreService.hasSelectedUser$;
   private destroy$: Subject<void> = new Subject();
+
+  searchTerm: string;
 
   constructor(
     private usersStoreService: UsersStoreService,
@@ -25,6 +27,7 @@ export class MyUsersComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getUsers();
+    this.retrieveUserList();
   }
 
   getUsers(): void {
@@ -52,8 +55,34 @@ export class MyUsersComponent implements OnInit, OnDestroy {
     return !!this.usersStoreQuery.selectedUser.id;
   }
 
+  searchUser(searchValue: string): void {
+    if (searchValue) {
+      this.toLowerCaseString(searchValue);
+      this.retrieveUserList();
+      combineLatest([this.usersList$, of(searchValue)]).subscribe(([userList, searchValue]) => {
+        this.usersList$ = of(
+          userList.filter((user: UserInterface) => this.toLowerCaseString(user.name).includes(searchValue))
+        );
+      });
+    } else {
+      this.retrieveUserList();
+    }
+  }
+
+  toLowerCaseString(string: string): string {
+    return string.toLocaleLowerCase();
+  }
+
+  retrieveUserList(): Observable<UserInterface[]> {
+    return (this.usersList$ = this.usersStoreService.hasUsers$);
+  }
+
   get isUsersListExist(): boolean | null {
     return this.usersStoreQuery.usersLength ? true : null;
+  }
+
+  get userListFromStore(): Observable<UserInterface[]> {
+    return this.usersStoreService.hasUsers$;
   }
 
   ngOnDestroy(): void {

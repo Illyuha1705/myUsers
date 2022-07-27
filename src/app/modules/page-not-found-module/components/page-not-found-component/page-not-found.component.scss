@@ -176,6 +176,10 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
 }
 
 .page-not-found__more-info {
+  position: relative;
+}
+
+.page-not-found__more-info-btn {
   background: none;
   border: none;
   color: $white_color;
@@ -186,7 +190,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
 
   &:disabled {
     cursor: default;
-    color: gray;
+    color: hsl(212, 11%, 27%);
   }
 }
 
