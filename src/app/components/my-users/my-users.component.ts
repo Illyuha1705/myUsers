@@ -13,8 +13,9 @@ import { UsersStateProps } from '../../interfaces/user-state.interface';
   styleUrls: ['my-users.component.scss'],
 })
 export class MyUsersComponent implements OnInit, OnDestroy {
-  usersList$: Observable<UserInterface[]>;
+  usersList$: Observable<UserInterface[]> = this.usersStoreService.hasUsers$;
   selectedUser$: Observable<UserInterface> = this.usersStoreService.hasSelectedUser$;
+
   private destroy$: Subject<void> = new Subject();
 
   searchTerm: string;
@@ -27,7 +28,6 @@ export class MyUsersComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getUsers();
-    this.retrieveUserList();
   }
 
   getUsers(): void {
@@ -52,7 +52,7 @@ export class MyUsersComponent implements OnInit, OnDestroy {
   }
 
   checkIsUserChosen(): boolean {
-    return !!this.usersStoreQuery.selectedUser.id;
+    return !!this.selectedUserId;
   }
 
   searchUser(searchValue: string): void {
@@ -75,6 +75,10 @@ export class MyUsersComponent implements OnInit, OnDestroy {
 
   retrieveUserList(): Observable<UserInterface[]> {
     return (this.usersList$ = this.usersStoreService.hasUsers$);
+  }
+
+  get selectedUserId(): string {
+    return this.usersStoreQuery.selectedUser.id;
   }
 
   get isUsersListExist(): boolean | null {

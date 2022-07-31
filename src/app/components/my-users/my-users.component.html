@@ -14,14 +14,12 @@
         />
       </div>
 
-      <ul class="users__list users-list" *ngIf="usersList$ | async as userList">
-        <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
-          <div class="users-list__logo">
-            <img src="../../../assets/img/users-avatar.png" alt="user avatar" />
-          </div>
-          <h4 class="users-list__title">{{ user.name }}</h4>
-        </li>
-        <li *ngFor="let user of userList" class="users-list__user" (click)="chooseUser(user.id)">
+      <ul #usersList class="users__list users-list" *ngIf="usersList$ | async as userList">
+        <li
+          *ngFor="let user of userList"
+          class="users-list__user"
+          [ngClass]="{'active': selectedUserId === user.id }"
+          (click)="chooseUser(user.id)">
           <div class="users-list__logo">
             <img src="../../../assets/img/users-avatar.png" alt="user avatar" />
           </div>
@@ -32,7 +30,7 @@
 
     <gc-card
       *ngIf="checkIsUserChosen()"
-      [user]="selectedUser$ | async"
+      [user]=" selectedUser$ | async"
       (closeButtonWasClicked$)="closeCard()"
     ></gc-card>
   </div>
