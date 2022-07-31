@@ -12,7 +12,6 @@
         *ngFor="let menuItem of menuItemsChanged$ | async; let i = index"
         [navigationItem]="menuItem"
         [ngClass]="menuItem.link.inDevelopment === true ? 'disabled' : ''"
-        (click)="onNavItemClick('navItem-' + i)"
       ></gc-nav-item>
     </ul>
   </div>
