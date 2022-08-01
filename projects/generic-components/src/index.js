@@ -1,5 +1,0 @@
-/**
- * Site Name
- * @type {string}
- */
-
