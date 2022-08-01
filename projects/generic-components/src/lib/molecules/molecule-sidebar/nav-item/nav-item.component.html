@@ -7,7 +7,7 @@
   >
     <button class="menu-item__button">
       <div class="menu-item__icon">
-        <img src="../../../../assets/img/users-avatar.png" alt="user avatar" />
+        <img [src]="navigationItemLink.iconPath" [alt]="navigationItemLink.iconName"/>
       </div>
       <span class="menu-item__text">{{ navigationItemLink.name | translate }}</span>
     </button>

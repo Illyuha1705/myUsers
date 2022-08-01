@@ -1,16 +1,17 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { NavigationSchemaService } from '../../../../../../src/app/navigation/services/navigation-schema.service';
-import { MenuItem } from '../../../../../../src/app/navigation/models/navigation';
+import { MenuItem } from '../../../../../../src/app/navigation/models/navigation.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+
+/** gc-sidebar component - sidebar with the list of navigation items and burger menu */
 
 @Component({
   selector: 'gc-sidebar',
   templateUrl: 'molecule-sidebar.component.html',
   styleUrls: ['molecule-sidebar.component.scss'],
 })
-export class MoleculeSidebarComponent implements OnInit, AfterViewInit {
-  @Output() allUsersChosen$: Subject<void> = new Subject<void>();
+export class MoleculeSidebarComponent implements AfterViewInit {
   menuItemsChanged$: Subject<MenuItem[]> = new Subject<MenuItem[]>();
 
   constructor(
@@ -18,15 +19,6 @@ export class MoleculeSidebarComponent implements OnInit, AfterViewInit {
     private detectChanges: ChangeDetectorRef,
     private router: Router
   ) {}
-
-  ngOnInit(): void {
-    this.navigationSchemaService.reinitializeNavigation$.subscribe({
-      next: (schema: MenuItem[]) => {
-        this.menuItemsChanged$.next(schema);
-        this.detectChanges.detectChanges();
-      },
-    });
-  }
 
   ngAfterViewInit(): void {
     this.generateNavigation();

@@ -19,8 +19,7 @@
         "LABEL": "All Chats"
       },
       "PRIVATE_CHATS": {
-        "LABEL": "Private chats",
-        "ICON_PATH": ""
+        "LABEL": "Private chats"
       },
       "EDIT": {
         "LABEL": "Edit"

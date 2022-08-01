@@ -77,7 +77,11 @@ export class MyUsersComponent implements OnInit, OnDestroy {
     return (this.usersList$ = this.usersStoreService.hasUsers$);
   }
 
-  get selectedUserId(): string {
+  isActiveCurrentItem(id: string): boolean {
+    return this.selectedUserId === id;
+  }
+
+  private get selectedUserId(): string {
     return this.usersStoreQuery.selectedUser.id;
   }
 

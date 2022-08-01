@@ -40,7 +40,7 @@ export class PageNotFoundComponent implements OnInit {
   }
 
   toggleDisableShowMoreButton(): void {
-    this.disableShowMoreButton = !!this.componentRef.instance.userPreviousUrl;
+    this.disableShowMoreButton = !this.disableShowMoreButton;
   }
 
   private updateUserPreviousUrl(): void {

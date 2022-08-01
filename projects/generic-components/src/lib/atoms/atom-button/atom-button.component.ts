@@ -1,6 +1,10 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 import { btnType } from '../../interfaces/atom-button.interface';
 
+/** [gc-button] directive makes the button which emits event by click.
+ * @param {btnType} btnType - styles button. Chose one variant from the list
+ * @param {string | undefined} ariaLabel - describes for what button is used */
+
 @Component({
   selector: 'button[gc-button]',
   templateUrl: './atom-button.component.html',

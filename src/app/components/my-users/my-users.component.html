@@ -1,7 +1,7 @@
 <section class="users">
   <h1 class="users__title">{{ 'APP.MY_USERS.TITLE' | translate }}</h1>
   <div class="users__wrapper">
-    <gc-sidebar (allUsersChosen$)="getUsers()"></gc-sidebar>
+    <gc-sidebar></gc-sidebar>
 
     <div class="users__second-column">
       <div class="search-input">
@@ -14,11 +14,11 @@
         />
       </div>
 
-      <ul #usersList class="users__list users-list" *ngIf="usersList$ | async as userList">
+      <ul class="users__list users-list" *ngIf="usersList$ | async as userList">
         <li
           *ngFor="let user of userList"
           class="users-list__user"
-          [ngClass]="{'active': selectedUserId === user.id }"
+          [ngClass]="{'active': isActiveCurrentItem(user.id) }"
           (click)="chooseUser(user.id)">
           <div class="users-list__logo">
             <img src="../../../assets/img/users-avatar.png" alt="user avatar" />

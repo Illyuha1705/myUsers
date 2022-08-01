@@ -2,30 +2,38 @@ $white_color: hsl(0, 0%, 100%);
 
 $more_info_border_radius: 5px;
 $more_info_padding: 15px;
+$more_info_bottom: 30px;
+$more_info_height: 90px;
+$more_info_width: 450px;
+$more_info_bg_color: hsl(223, 2%, 15%);
+
+$more_info_message_line_height: 150%;
+$more_info_message_max_width: 87%;
 
 $btn_close_size: 16px;
+
 
 .more-info {
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: $more_info_bottom;
   transform: translateX(-50%);
-  height: 90px;
-  width: 450px;
+  height: $more_info_height;
+  width: $more_info_width;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: hsl(223, 2%, 15%);
+  background-color: $more_info_bg_color;
   padding: $more_info_padding;
   border-radius: $more_info_border_radius;
 }
 
 .more-info__message {
   color: $white_color;
-  line-height: 150%;
+  line-height: $more_info_message_line_height;
   text-align: center;
   overflow: hidden;
-  max-width: 90%;
+  max-width: $more_info_message_max_width;
 }
 
 .more-info__btn-close {

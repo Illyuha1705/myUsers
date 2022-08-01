@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MyUsersComponent } from './components/my-users/my-users.component';
-import { PageNotFoundModule } from './modules/page-not-found-module/page-not-found.module';
-import { PageNotFoundComponent } from './modules/page-not-found-module/components/page-not-found-component/page-not-found.component';
+import { PageNotFoundModule } from './modules/page-not-found/page-not-found.module';
+import { PageNotFoundComponent } from './modules/page-not-found/components/page-not-found-component/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'my-users', pathMatch: 'full' },

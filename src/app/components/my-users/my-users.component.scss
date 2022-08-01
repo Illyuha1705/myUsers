@@ -8,7 +8,17 @@ $users_list_user_hover_background_color: hsl(212, 12%, 24%);
 
 $users_background_color: hsl(200, 5%, 12%);
 
+$search_input_height: 50px;
+$search_input_padding: 8px;
+
+$search_input_control_background_color: hsl(212, 11%, 27%);
+$search_input_control_color: hsl(203, 15%, 83%);
+$search_input_control_padding: 5px 10px;
+$search_input_control_border_radius: 8px;
+
 $users_list_margin: 25px 0 0;
+$users_list_min_width: 300px;
+$users_list_max_height: 93vh;
 $users_list_base_font_size: 16px;
 $users_list_base_line_height: 24px;
 $users_list_base_text_shadow: 0 0 0.5px;
@@ -19,6 +29,11 @@ $user_width: 100%;
 $user_logo_size: 50px;
 $user_logo_padding: 5px 0 5px 10px;
 $user_selected_background: hsl(262, 32%, 49%);
+
+$scroll_bar_width: 3.5px;
+$scroll_bar_track_background: hsl(207, 7%, 26%);
+$scroll_bar_track_background_hover: hsl(207, 6%, 32%);
+$scroll_bar_thumb_background: hsl(200, 4%, 54%);
 
 .users {
   background-color: $users_background_color;
@@ -38,41 +53,41 @@ $user_selected_background: hsl(262, 32%, 49%);
 }
 
 .search-input {
-  height: 50px;
-  padding: 8px;
+  height: $search_input_height;
+  padding: $search_input_padding;
 }
 
 .search-input__control {
   width: $user_width;
   height: 100%;
-  background-color: hsl(212, 11%, 27%);
-  color: hsl(203, 15%, 83%);
-  padding: 5px 10px;
+  background-color: $search_input_control_background_color;
+  color: $search_input_control_color;
+  padding: $search_input_control_padding;
   border: none;
   outline: none;
-  border-radius: 8px;
+  border-radius: $search_input_control_border_radius;
 }
 
 .users__list {
-  min-width: 300px;
-  max-height: 93vh;
+  min-width: $users_list_min_width;
+  max-height: $users_list_max_height;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
-    width: 3.5px;
+    width: $scroll_bar_width;
   }
 
   &::-webkit-scrollbar-track {
-    background: hsl(207, 7%, 26%);
+    background: $scroll_bar_track_background;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: hsl(200, 4%, 54%);
+    background: $scroll_bar_thumb_background;
     border-radius: 25px;
   }
 
   &::-webkit-scrollbar-track:hover {
-    background: hsl(207, 6%, 32%);
+    background: $scroll_bar_track_background_hover;
   }
 }
 

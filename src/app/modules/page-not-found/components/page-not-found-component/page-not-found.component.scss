@@ -16,6 +16,8 @@ $cat_ear_height: 14vh;
 $cat_ear_width: 10vh;
 $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
 
+$empty_content: "";
+
 .page-not-found {
   height: $page_not_found_height;
   background-color: $page_not_found_background;
@@ -51,7 +53,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   background-color: $white_color;
 
   &:before, &:after {
-    content: "";
+    content: $empty_content;
     position: absolute;
     width: 2px;
     background-color: $black_color;
@@ -124,7 +126,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   position: relative;
 
   &:before {
-    content: "";
+    content: $empty_content;
     position: absolute;
     height: 50%;
     left: -2vh;
@@ -136,7 +138,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   }
 
   &:after {
-    content: "";
+    content: $empty_content;
     width: 10%;
     height: 15%;
     border-radius: 50%;
@@ -156,7 +158,7 @@ $cat_ear_border_radius: 40% 70% 10% 10% / 100% 100% 10% 10%;
   left: 35%;
 
   &:after {
-    content: "";
+    content: $empty_content;
     background-color: $white_color;
     width: 20%;
     left: 20%;

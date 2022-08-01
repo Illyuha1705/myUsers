@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MenuItem, NavigationLInk } from '../../../../../../../src/app/navigation/models/navigation';
+import { MenuItem, NavigationLInk } from '../../../../../../../src/app/navigation/models/navigation.model';
 @Component({
   selector: 'gc-nav-item',
   templateUrl: 'nav-item.component.html',
