@@ -1,6 +1,7 @@
 import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { MoreInfoComponent } from '../more-info-component/more-info-component';
+import { FormatTextService } from '../../../../services/format-text/format-text.service';
 
 @Component({
   selector: 'app-page-not-found',
@@ -15,7 +16,11 @@ export class PageNotFoundComponent implements OnInit {
   userPreviousUrl = '';
   disableShowMoreButton = false;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private formatTextService: FormatTextService
+  ) {}
 
   ngOnInit(): void {
     this.updateUserPreviousUrl();
@@ -48,10 +53,8 @@ export class PageNotFoundComponent implements OnInit {
       this.userPreviousUrl += urlSegment.path + '/';
     });
 
-    if (this.userPreviousUrl.length > 50) this.formatUserPreviousUrl();
-  }
-
-  private formatUserPreviousUrl(): void {
-    this.userPreviousUrl = this.userPreviousUrl.slice(0, 50) + '...';
+    if (this.userPreviousUrl.length > 50) {
+      this.userPreviousUrl = this.formatTextService.sliceString(this.userPreviousUrl, 0, 50);
+    }
   }
 }

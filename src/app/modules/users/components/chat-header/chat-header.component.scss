@@ -21,6 +21,10 @@ $border_none: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .chat-header__main-info {

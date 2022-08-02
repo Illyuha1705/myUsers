@@ -9,6 +9,7 @@ import { IconInterface } from '../../../../interfaces/icon.interface';
 })
 export class ChatHeaderComponent {
   @Input() selectedUser: UserInterface;
+  isUserInfoOpen = false;
 
   options: IconInterface[] = [
     { alt: 'Search in chat', src: 'assets/img/find-search.svg' },
@@ -16,4 +17,13 @@ export class ChatHeaderComponent {
     { alt: 'See selected user profile', src: 'assets/img/user-profile.svg' },
     { alt: 'Open chat menu', src: 'assets/img/menu.svg' },
   ];
+
+  toggleUserInfoCard(): void {
+    this.isUserInfoOpen = !this.isUserInfoOpen;
+  }
+
+  handleOptionClick(e: Event) {
+    e.stopPropagation();
+    console.log('click');
+  }
 }

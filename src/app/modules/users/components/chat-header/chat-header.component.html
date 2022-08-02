@@ -1,11 +1,21 @@
-<section class="chat-header">
+<section class="chat-header" (click)="toggleUserInfoCard()">
   <div class="chat-header__main-info">
     <h1 class="chat-header__title">{{ selectedUser.name }}</h1>
     <div class="chat-header__online-info">last seen recently</div>
   </div>
   <div class="chat-header__options">
-    <button class="chat-header-option" *ngFor="let option of options">
+    <button
+      class="chat-header-option"
+      *ngFor="let option of options"
+      (click)="handleOptionClick($event)"
+    >
       <img [src]="option.src" [alt]="option.alt"/>
     </button>
   </div>
 </section>
+
+<ng-container *ngIf="isUserInfoOpen">
+  <gc-card></gc-card>
+</ng-container>
+
+

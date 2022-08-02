@@ -2,10 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserInterface } from '../../../../interfaces/user.interface';
 import { UsersStoreService } from '../../../../store/users/users-store.service';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
-import { UsersService } from '../../../../services/users-service/users.service';
+import { UsersService } from '../../../../services/users/users.service';
 import { takeUntil } from 'rxjs/operators';
 import { UsersStoreQuery } from '../../../../store/users/users-store.query';
 import { UsersStateProps } from '../../../../interfaces/user-state.interface';
+import { FormatTextService } from '../../../../services/format-text/format-text.service';
 
 @Component({
   selector: 'app-my-users',
@@ -23,7 +24,8 @@ export class MyUsersComponent implements OnInit, OnDestroy {
   constructor(
     private usersStoreService: UsersStoreService,
     private usersStoreQuery: UsersStoreQuery,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private formatTextService: FormatTextService
   ) {}
 
   ngOnInit(): void {
@@ -42,26 +44,20 @@ export class MyUsersComponent implements OnInit, OnDestroy {
       });
   }
 
-  closeCard(): void {
-    this.usersStoreService.updateUserState(UsersStateProps.selectedUser, {} as UserInterface);
-  }
-
   chooseUser(userId: string): void {
     const user: UserInterface | null = this.usersStoreService.getUserById(userId);
     if (user) this.usersStoreService.updateUserState(UsersStateProps.selectedUser, user);
   }
 
-  checkIsUserChosen(): boolean {
-    return !!this.selectedUserId;
-  }
-
   searchUser(searchValue: string): void {
     if (searchValue) {
-      this.toLowerCaseString(searchValue);
+      this.formatTextService.toLowerCaseString(searchValue);
       this.retrieveUserList();
       combineLatest([this.usersList$, of(searchValue)]).subscribe(([userList, searchValue]) => {
         this.usersList$ = of(
-          userList.filter((user: UserInterface) => this.toLowerCaseString(user.name).includes(searchValue))
+          userList.filter((user: UserInterface) =>
+            this.formatTextService.toLowerCaseString(user.name).includes(searchValue)
+          )
         );
       });
     } else {
@@ -69,28 +65,12 @@ export class MyUsersComponent implements OnInit, OnDestroy {
     }
   }
 
-  toLowerCaseString(string: string): string {
-    return string.toLocaleLowerCase();
-  }
-
   retrieveUserList(): Observable<UserInterface[]> {
     return (this.usersList$ = this.usersStoreService.hasUsers$);
   }
 
   isActiveCurrentItem(id: string): boolean {
-    return this.selectedUserId === id;
-  }
-
-  private get selectedUserId(): string {
-    return this.usersStoreQuery.selectedUser.id;
-  }
-
-  get isUsersListExist(): boolean | null {
-    return this.usersStoreQuery.usersLength ? true : null;
-  }
-
-  get userListFromStore(): Observable<UserInterface[]> {
-    return this.usersStoreService.hasUsers$;
+    return this.usersStoreQuery.selectedUser.id === id;
   }
 
   ngOnDestroy(): void {
