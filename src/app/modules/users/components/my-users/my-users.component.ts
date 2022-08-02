@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UserInterface } from '../../interfaces/user.interface';
-import { UsersStoreService } from '../../store/users/users-store.service';
+import { UserInterface } from '../../../../interfaces/user.interface';
+import { UsersStoreService } from '../../../../store/users/users-store.service';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
-import { UsersService } from '../../services/users-service/users.service';
+import { UsersService } from '../../../../services/users-service/users.service';
 import { takeUntil } from 'rxjs/operators';
-import { UsersStoreQuery } from '../../store/users/users-store.query';
-import { UsersStateProps } from '../../interfaces/user-state.interface';
+import { UsersStoreQuery } from '../../../../store/users/users-store.query';
+import { UsersStateProps } from '../../../../interfaces/user-state.interface';
 
 @Component({
   selector: 'app-my-users',

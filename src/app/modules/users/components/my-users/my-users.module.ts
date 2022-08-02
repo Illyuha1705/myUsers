@@ -5,9 +5,10 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
-import { UsersService } from '../../services/users-service/users.service';
-import { UsersStoreModule } from '../../store/users/users-store.module';
+import { UsersService } from '../../../../services/users-service/users.service';
+import { UsersStoreModule } from '../../../../store/users/users-store.module';
 import { FormsModule } from '@angular/forms';
+import { ChatHeaderModule } from '../chat-header/chat-header.module';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     UsersStoreModule,
     TranslateModule,
     FormsModule,
+    ChatHeaderModule,
   ],
   providers: [UsersService],
   exports: [MyUsersComponent],

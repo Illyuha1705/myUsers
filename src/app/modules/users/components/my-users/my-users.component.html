@@ -21,17 +21,15 @@
           [ngClass]="{'active': isActiveCurrentItem(user.id) }"
           (click)="chooseUser(user.id)">
           <div class="users-list__logo">
-            <img src="../../../assets/img/users-avatar.png" alt="user avatar" />
+            <img src="../../../../../assets/img/users-avatar.png" alt="user avatar" />
           </div>
           <h4 class="users-list__title">{{ user.name }}</h4>
         </li>
       </ul>
     </div>
 
-    <gc-card
-      *ngIf="checkIsUserChosen()"
-      [user]=" selectedUser$ | async"
-      (closeButtonWasClicked$)="closeCard()"
-    ></gc-card>
+    <div class="users__third-column">
+      <app-users-header [selectedUser]="selectedUser$ | async"></app-users-header>
+    </div>
   </div>
 </section>
