@@ -8,8 +8,7 @@ $chat_header_title_color: hsl(35, 18%, 79%);
 $chat_header_online_info_color: hsl(0, 0%, 50%);
 
 $chat_header_options_padding: 13px;
-$chat_header_option_width: 25px;
-$chat_header_option_margin: 0 10px;
+$chat_header_option_width: 40px;
 
 $border_none: none;
 
@@ -44,18 +43,30 @@ $border_none: none;
 
 .chat-header__options {
   padding-right: $chat_header_options_padding;
+  display: flex;
+  align-items: center;
   height: 100%;
 }
 
 .chat-header-option {
   width: $chat_header_option_width;
   height: 100%;
-  margin: $chat_header_option_margin;
   border: $border_none;
   background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
-    height: 50%;
+    height: 22px;
+    width: 22px;
+  }
+
+  &:before {
+    content: '';
+    width: 0;
+    height: 0;
+    opacity: 0;
   }
 
   &:hover {
@@ -64,5 +75,27 @@ $border_none: none;
     img {
       filter: brightness(1.5);
     }
+  }
+}
+
+.active-option {
+  position: relative;
+
+  img {
+    filter: brightness(1.5);
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 40px;
+    background: #303d45;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.8s, height 0.4s, width 0.4s;
   }
 }

@@ -6,8 +6,9 @@
   <div class="chat-header__options">
     <button
       class="chat-header-option"
-      *ngFor="let option of options"
-      (click)="handleOptionClick($event)"
+      *ngFor="let option of options; let i = index"
+      (click)="handleOptionClick($event, i)"
+      [ngClass]="{'active-option' : retrieveActiveEntityId(i)}"
     >
       <img [src]="option.src" [alt]="option.alt"/>
     </button>
@@ -15,7 +16,7 @@
 </section>
 
 <ng-container *ngIf="isUserInfoOpen">
-  <gc-card></gc-card>
+  <gc-card [user]="selectedUser" (closeButtonWasClicked$)="toggleUserInfoCard()"></gc-card>
 </ng-container>
 
 

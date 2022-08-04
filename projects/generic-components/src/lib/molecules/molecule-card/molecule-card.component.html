@@ -1,38 +1,40 @@
-<div class="card">
-  <div class="card__header header">
-    <div class="header__inner">
-      <h3 class="header__title">{{user.name}}</h3>
+<div class="component-bg" (click)="closeCard(user.id)">
+  <article class="card" (click)="$event.stopPropagation()">
+    <div class="card__header header">
+      <div class="header__inner">
+        <h3 class="header__title">User info</h3>
+      </div>
+
+      <button
+        class="header__btn-close"
+        (click)="closeCard(user.id)"
+      ></button>
     </div>
 
-    <button
-      class="header__btn-close"
-      (click)="closeCard(user.id)"
-    ></button>
-  </div>
+    <div class="card__content content">
+      <div class="content__header">
+        <div class="content__photo">
+          <img src="../../../assets/img/users-avatar.png" alt="current user photo">
+        </div>
+        <div class="content__inner">
+          <p class="content__username">{{user.name}}</p>
+          <p class="content__name">{{user.username}}</p>
+        </div>
+      </div>
 
-  <div class="card__content content">
-    <div class="content__header">
-      <div class="content__photo">
-        <img src="../../../assets/img/users-avatar.png" alt="current user photo">
+      <div class="content__email email">
+        <div class="email__img content-ico">
+          <img src="../../../assets/img/email.svg" [alt]="'current user email' + user.email">
+        </div>
+        <span>{{user.email}}</span>
       </div>
-      <div class="content__inner">
-        <p class="content__username">{{user.username}}</p>
-        <p class="content__name">{{user.name}}</p>
+      <div class="content__phone phone">
+        <div class="phone__img content-ico">
+          <img src="../../../assets/img/phone.svg" [alt]="'current user phone' + user.phone">
+        </div>
+        <span>{{user.phone}}</span>
       </div>
+      <a [href]="user.website" class="content__website">{{user.website}}</a>
     </div>
-
-    <div class="content__email email">
-      <div class="email__img content-ico">
-        <img src="../../../assets/img/email.svg" [alt]="'current user email' + user.email">
-      </div>
-      <span>{{user.email}}</span>
-    </div>
-    <div class="content__phone phone">
-      <div class="phone__img content-ico">
-        <img src="../../../assets/img/phone.svg" [alt]="'current user phone' + user.phone">
-      </div>
-      <span>{{user.phone}}</span>
-    </div>
-    <a [href]="user.website" class="content__website">{{user.website}}</a>
-  </div>
+  </article>
 </div>
