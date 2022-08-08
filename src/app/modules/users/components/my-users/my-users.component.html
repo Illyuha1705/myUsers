@@ -28,8 +28,16 @@
       </ul>
     </div>
 
-    <div class="users__third-column">
-      <app-users-header [selectedUser]="selectedUser$ | async"></app-users-header>
+    <div class="users__third-column" *ngIf="isUserSelected; else noSelectedUser">
+      <app-chat-header [selectedUser]="selectedUser$ | async"></app-chat-header>
+      <div class="users__chat-field"></div>
     </div>
+
+    <ng-template #noSelectedUser>
+      <div class="users__third-column">
+        <span class="message">Select a chat to start messaging</span>
+      </div>
+
+    </ng-template>
   </div>
 </section>

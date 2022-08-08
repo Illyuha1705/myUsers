@@ -73,6 +73,10 @@ export class MyUsersComponent implements OnInit, OnDestroy {
     return this.usersStoreQuery.selectedUser.id === id;
   }
 
+  get isUserSelected(): boolean {
+    return !!this.usersStoreQuery.selectedUser.id;
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

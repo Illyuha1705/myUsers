@@ -130,3 +130,17 @@ $scroll_bar_thumb_background: hsl(200, 4%, 54%);
 .users__third-column {
   width: 100%;
 }
+
+.users__chat-field {
+  background: url("../../../../../assets/img/main-bg.jpg") center/cover;
+  width: 100%;
+  height: calc(100vh - 50px);
+}
+
+.message {
+  color: hsl(35deg, 18%, 79%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

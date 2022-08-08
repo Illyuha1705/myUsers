@@ -1,0 +1,31 @@
+<button
+  *ngIf="!isCustomOption; else dropdownTemplate"
+  class="chat-header-option"
+  (click)="handleOptionClick()"
+  [ngClass]="{'active-option' : isOptionSelected}"
+>
+  <img [src]="imagePath" [alt]="imageAlt"/>
+</button>
+
+<ng-template #dropdownTemplate>
+  <div class="chat-menu-dropdown" (clickOutside)="closeDropdown()">
+    <button
+      class="chat-header-option chat-menu-dropdown__toggle"
+      (click)="handleOptionDropdownClick()"
+      [ngClass]="{'active-option' : isOptionSelected && isDropdownOpen}"
+    >
+      <img [src]="imagePath" [alt]="imageAlt">
+    </button>
+    <div class="chat-menu-dropdown__content" *ngIf="isDropdownOpen">
+      <ul class="chat-menu-dropdown__items-list">
+        <li
+          *ngFor="let item of chatMenuOptions; let i = index"
+          (click)="executeDropdownOption(i)"
+          class="chat-menu-dropdown__item"
+        >
+          <span [innerHTML]="item.name"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>
