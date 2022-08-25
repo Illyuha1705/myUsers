@@ -1,20 +1,37 @@
 <section class="chat-header">
   <div class="chat-header__main-info" (click)="toggleUserInfoCard()">
     <h1 class="chat-header__title">{{ selectedUser.name }}</h1>
-    <div class="chat-header__online-info">last seen recently</div>
+    <div class="chat-header__online-info">{{ 'APP.CHAT_HEADER.LAST_ONLINE' | translate }}</div>
   </div>
   <div class="chat-header__options">
     <app-chat-header-option
-      *ngFor="let option of options; let i = index"
-      [imageAlt]="option.alt"
-      [imagePath]="option.src"
-      [id]="i"
-      [isCustomOption]="option.isCustomOption"
-      (openUserInfo$)="toggleUserInfoCard()"
+      imageAlt="Search in chat"
+      imagePath="assets/img/find-search.svg"
+      [isCustomOption]="false"
+      [id]="0"
+    ></app-chat-header-option>
+
+    <app-chat-header-option
+      imageAlt="Phone to selected user"
+      imagePath="assets/img/phone-call.svg"
+      [isCustomOption]="false"
+      [id]="1"
+    ></app-chat-header-option>
+
+    <app-chat-header-option
+      imageAlt="Selected user profile"
+      imagePath="assets/img/user-profile.svg"
+      [isCustomOption]="true"
+      [isCustomActiveOption]="true"
+      [id]="2"
+    ></app-chat-header-option>
+
+    <app-chat-header-option
+      imageAlt="Open chat menu"
+      imagePath="assets/img/menu.svg"
+      [isCustomOption]="true"
+      [id]="3"
+      (removeChat$)="removeChat()"
     ></app-chat-header-option>
   </div>
 </section>
-
-<ng-container *ngIf="isUserInfoOpen">
-  <gc-card [user]="selectedUser" (closeButtonWasClicked$)="toggleUserInfoCard()"></gc-card>
-</ng-container>

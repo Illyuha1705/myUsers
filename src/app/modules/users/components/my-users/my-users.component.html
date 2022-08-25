@@ -18,8 +18,9 @@
         <li
           *ngFor="let user of userList"
           class="users-list__user"
-          [ngClass]="{'active': isActiveCurrentItem(user.id) }"
-          (click)="chooseUser(user.id)">
+          [ngClass]="{ active: isActiveCurrentItem(user.id) }"
+          (click)="chooseUser(user.id)"
+        >
           <div class="users-list__logo">
             <img src="../../../../../assets/img/users-avatar.png" alt="user avatar" />
           </div>
@@ -28,16 +29,25 @@
       </ul>
     </div>
 
-    <div class="users__third-column" *ngIf="isUserSelected; else noSelectedUser">
+    <div class="users__third-column third-column" *ngIf="isUserSelected; else noSelectedUser">
       <app-chat-header [selectedUser]="selectedUser$ | async"></app-chat-header>
-      <div class="users__chat-field"></div>
+      <ng-container *ngIf="isUserInfoTray">
+        <app-user-info-tray
+          [user]="selectedUser$ | async"
+          (closeButtonWasClicked$)="closeUserInfoTray()"
+        ></app-user-info-tray>
+      </ng-container>
+      <div class="third-column__content"></div>
     </div>
 
     <ng-template #noSelectedUser>
       <div class="users__third-column">
-        <span class="message">Select a chat to start messaging</span>
+        <span class="message">{{ 'APP.NO_USER' | translate }}</span>
       </div>
-
     </ng-template>
   </div>
 </section>
+
+<ng-container *ngIf="isUserInfoOpen">
+  <gc-card [user]="selectedUser$ | async" (closeButtonWasClicked$)="closeUserInfo()"></gc-card>
+</ng-container>

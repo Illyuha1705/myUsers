@@ -23,4 +23,12 @@ export class UsersStoreService {
   getUserById(userId: string): UserInterface | null {
     return this.usersStoreQuery.users.find((user) => user.id === userId) || null;
   }
+
+  removeUserById(userId: string): void {
+    const newUsersState: UsersState = {
+      usersList: this.usersStoreQuery.users.filter((user) => user.id !== userId),
+      selectedUser: {} as UserInterface,
+    };
+    this.updateEntireUserState(newUsersState);
+  }
 }

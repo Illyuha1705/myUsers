@@ -1,20 +1,33 @@
 <button
-  *ngIf="!isCustomOption; else dropdownTemplate"
+  *ngIf="!isCustomOption; else customOption"
   class="chat-header-option"
   (click)="handleOptionClick()"
-  [ngClass]="{'active-option' : isOptionSelected}"
+  [ngClass]="{ 'active-option': isOptionSelected }"
 >
-  <img [src]="imagePath" [alt]="imageAlt"/>
+  <img [src]="imagePath" [alt]="imageAlt" />
 </button>
+
+<ng-template #customOption>
+  <button
+    *ngIf="isCustomActiveOption; else dropdownTemplate"
+    class="chat-header-option"
+    (click)="handleOptionClick()"
+  >
+    <img *ngIf="!isCustomOptionActive; else activeOption" [src]="imagePath" [alt]="imageAlt" />
+    <ng-template #activeOption>
+      <img src="assets/img/user-profile-active.svg" [alt]="imageAlt" />
+    </ng-template>
+  </button>
+</ng-template>
 
 <ng-template #dropdownTemplate>
   <div class="chat-menu-dropdown" (clickOutside)="closeDropdown()">
     <button
       class="chat-header-option chat-menu-dropdown__toggle"
       (click)="handleOptionDropdownClick()"
-      [ngClass]="{'active-option' : isOptionSelected && isDropdownOpen}"
+      [ngClass]="{ 'active-option': isOptionSelected && isDropdownOpen }"
     >
-      <img [src]="imagePath" [alt]="imageAlt">
+      <img [src]="imagePath" [alt]="imageAlt" />
     </button>
     <div class="chat-menu-dropdown__content" *ngIf="isDropdownOpen">
       <ul class="chat-menu-dropdown__items-list">

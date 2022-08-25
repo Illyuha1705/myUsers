@@ -7,6 +7,8 @@ import { takeUntil } from 'rxjs/operators';
 import { UsersStoreQuery } from '../../../../store/users/users-store.query';
 import { UsersStateProps } from '../../../../interfaces/user-state.interface';
 import { FormatTextService } from '../../../../services/format-text/format-text.service';
+import { UserInfoService } from '../../../../services/user-info/user-info.service';
+import { ChatHeaderOptionStore } from '../../../../store/chat-header-options/chat-header-options.store';
 
 @Component({
   selector: 'app-my-users',
@@ -20,16 +22,22 @@ export class MyUsersComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject();
 
   searchTerm: string;
+  isUserInfoOpen = false;
+  isUserInfoTray = false;
 
   constructor(
     private usersStoreService: UsersStoreService,
     private usersStoreQuery: UsersStoreQuery,
     private usersService: UsersService,
-    private formatTextService: FormatTextService
+    private formatTextService: FormatTextService,
+    private userInfoService: UserInfoService,
+    private chatHeaderOptionStore: ChatHeaderOptionStore
   ) {}
 
   ngOnInit(): void {
     this.getUsers();
+    this.toggleUserInfo();
+    this.toggleUserInfoTray();
   }
 
   getUsers(): void {
@@ -71,6 +79,27 @@ export class MyUsersComponent implements OnInit, OnDestroy {
 
   isActiveCurrentItem(id: string): boolean {
     return this.usersStoreQuery.selectedUser.id === id;
+  }
+
+  toggleUserInfo(): void {
+    this.userInfoService.showUserInfoSection$.pipe(takeUntil(this.destroy$)).subscribe({
+      next: () => (this.isUserInfoOpen = !this.isUserInfoOpen),
+    });
+  }
+
+  toggleUserInfoTray(): void {
+    this.userInfoService.showUserInfoTray$.pipe(takeUntil(this.destroy$)).subscribe({
+      next: () => (this.isUserInfoTray = !this.isUserInfoTray),
+    });
+  }
+
+  closeUserInfo(): void {
+    this.isUserInfoOpen = false;
+  }
+
+  closeUserInfoTray(): void {
+    this.isUserInfoTray = false;
+    this.chatHeaderOptionStore.update(1, { isCustomOptionActive: false });
   }
 
   get isUserSelected(): boolean {

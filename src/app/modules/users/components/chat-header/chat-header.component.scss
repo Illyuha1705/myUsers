@@ -12,6 +12,12 @@ $chat_header_option_width: 40px;
 
 $border_none: none;
 
+$users_background_color: hsl(220, 5%, 12%);
+
+:host {
+  width: 100%;
+}
+
 .chat-header {
   height: $chat_header_height;
   border: $chat_header_border;
@@ -21,6 +27,7 @@ $border_none: none;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  background-color: $users_background_color;
 
   &:hover {
     cursor: pointer;

@@ -1,0 +1,121 @@
+$card_base_width: 400px;
+$card_base_height: 100%;
+$card_base_padding: 25px 29px;
+$card_base_text_weight: 700;
+$card_base_line_height: 24px;
+
+$card_header_height: 48px;
+$card_header_padding: 5px 10px;
+$card_header_font_size: 20px;
+
+$card_content_padding: 20px 0 15px 0;
+$card_content_header_margin: 0 0 15px;
+$card_content_photo_size: 96px;
+
+$btn_close_size: 16px;
+
+$content_ico_margin: 0 15px 0 0;
+$content_ico_size: 17px;
+$content_inner_margin: 0 0 0 20px;
+$content_phone_margin: 10px 0 15px;
+$content_base_font_size: 14px;
+$content_website_margin: 0 0 0 32px;
+
+.card {
+  width: $card_base_width;
+  height: $card_base_height;
+  padding: $card_base_padding;
+  background: hsl(220, 5%, 12%);
+  position: relative;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: $card_header_font_size;
+  line-height: $card_base_line_height;
+  color: hsl(0, 100%, 100%);
+}
+
+.header__btn-close {
+  background: url('../../../../../assets/img/close.svg') center;
+  width: $btn_close_size;
+  height: $btn_close_size;
+  border: none;
+  cursor: pointer;
+}
+
+.card__content {
+  padding: $card_content_padding;
+}
+
+.content__header {
+  display: flex;
+  align-items: center;
+  margin: $card_content_header_margin;
+}
+
+.content__photo {
+  width: $card_content_photo_size;
+  height: $card_content_photo_size;
+}
+
+.content__inner {
+  padding: $content_inner_margin;
+  color: hsl(0, 100%, 100%);
+}
+
+.content__username {
+  font-size: $content_base_font_size + 2px;
+  line-height: $card_base_line_height;
+  font-weight: 600;
+}
+
+.content__name {
+  font-size: $content_base_font_size;
+  line-height: $card_base_line_height;
+}
+
+.content__email {
+  display: flex;
+  align-items: center;
+  font-size: $content_base_font_size;
+  line-height: $card_base_line_height;
+  color: hsl(0, 100%, 100%);
+}
+
+.content-ico {
+  width: $content_ico_size;
+  height: $content_ico_size;
+  margin: $content_ico_margin;
+}
+
+.content__phone {
+  font-size: $content_base_font_size;
+  line-height: $card_base_line_height;
+  color: hsl(0, 100%, 100%);
+  display: flex;
+  align-items: center;
+  margin: $content_phone_margin;
+}
+
+.content__website {
+  font-size: $content_base_font_size;
+  line-height: $card_base_line_height;
+  color: hsl(197, 100%, 43%);
+  text-decoration: none;
+  margin-left: $content_website_margin;
+}
+
+.right {
+  position: relative;
+  width: $card_base_width;
+}
+
+.right-card {
+  height: 100%;
+}

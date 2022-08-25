@@ -9,6 +9,7 @@ import { UsersService } from '../../../../services/users/users.service';
 import { UsersStoreModule } from '../../../../store/users/users-store.module';
 import { FormsModule } from '@angular/forms';
 import { ChatHeaderModule } from '../chat-header/chat-header.module';
+import { UserInfoTrayModule } from '../user-info-tray/user-info-tray.module';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -22,6 +23,7 @@ import { ChatHeaderModule } from '../chat-header/chat-header.module';
     TranslateModule,
     FormsModule,
     ChatHeaderModule,
+    UserInfoTrayModule,
   ],
   providers: [UsersService],
   exports: [MyUsersComponent],

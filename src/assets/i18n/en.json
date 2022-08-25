@@ -24,6 +24,10 @@
       "EDIT": {
         "LABEL": "Edit"
       }
-    }
+    },
+    "CHAT_HEADER": {
+      "LAST_ONLINE": "last seen recently"
+    },
+    "NO_USER": "Select a chat to start messaging"
   }
 }

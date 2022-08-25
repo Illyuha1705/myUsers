@@ -4,6 +4,10 @@ $border_none: none;
 
 $users_background_color: hsl(220, 5%, 12%);
 
+:host {
+  height: 100%;
+}
+
 .chat-header-option {
   width: $chat_header_option_width;
   height: 100%;
@@ -13,8 +17,6 @@ $users_background_color: hsl(220, 5%, 12%);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-
 
   img {
     height: 22px;
@@ -25,7 +27,14 @@ $users_background_color: hsl(220, 5%, 12%);
     content: '';
     width: 0;
     height: 0;
+    background: transparent;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s, height 0.2s, width 0.2s;
   }
 
   &:hover {
@@ -53,8 +62,15 @@ $users_background_color: hsl(220, 5%, 12%);
     left: 50%;
     opacity: 1;
     transform: translate(-50%, -50%);
-    transition: opacity 0.4s, height 0.2s, width 0.2s;
   }
+}
+
+.custom-active-option {
+
+}
+
+.chat-menu-dropdown {
+  height: 100%;
 }
 
 .chat-menu-dropdown__content {
