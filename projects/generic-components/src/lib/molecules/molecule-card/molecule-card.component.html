@@ -5,7 +5,15 @@
         <h3 class="header__title">User info</h3>
       </div>
 
-      <button class="header__btn-close" (click)="closeCard(user.id)"></button>
+      <div class="header__options">
+        <button class="header__btn-menu header-btn">
+          <img src="assets/img/menu.svg" alt="User menu">
+        </button>
+        <button class="header__btn-close header-btn" (click)="closeCard(user.id)">
+          <img src="assets/img/close.svg" alt="User menu">
+        </button>
+      </div>
+
     </div>
 
     <div class="card__content content">

@@ -30,14 +30,22 @@
     </div>
 
     <div class="users__third-column third-column" *ngIf="isUserSelected; else noSelectedUser">
-      <app-chat-header [selectedUser]="selectedUser$ | async"></app-chat-header>
+      <div class="third-column__content">
+        <app-chat-header [selectedUser]="selectedUser$ | async"></app-chat-header>
+      </div>
+
+      <div class="third-column__footer">
+        <app-message-field></app-message-field>
+      </div>
+    </div>
+
+    <div class="users__fourth-column">
       <ng-container *ngIf="isUserInfoTray">
         <app-user-info-tray
           [user]="selectedUser$ | async"
           (closeButtonWasClicked$)="closeUserInfoTray()"
         ></app-user-info-tray>
       </ng-container>
-      <div class="third-column__content"></div>
     </div>
 
     <ng-template #noSelectedUser>

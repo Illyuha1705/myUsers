@@ -10,6 +10,7 @@ import { UsersStoreModule } from '../../../../store/users/users-store.module';
 import { FormsModule } from '@angular/forms';
 import { ChatHeaderModule } from '../chat-header/chat-header.module';
 import { UserInfoTrayModule } from '../user-info-tray/user-info-tray.module';
+import { MessageFieldModule } from '../message-field/message-field.module';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -24,6 +25,7 @@ import { UserInfoTrayModule } from '../user-info-tray/user-info-tray.module';
     FormsModule,
     ChatHeaderModule,
     UserInfoTrayModule,
+    MessageFieldModule,
   ],
   providers: [UsersService],
   exports: [MyUsersComponent],

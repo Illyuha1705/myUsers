@@ -12,7 +12,7 @@ $card_content_padding: 20px 0 15px 0;
 $card_content_header_margin: 0 0 15px;
 $card_content_photo_size: 96px;
 
-$btn_close_size: 16px;
+$btn_close_size: 30px;
 
 $content_ico_margin: 0 15px 0 0;
 $content_ico_size: 17px;
@@ -53,12 +53,38 @@ $content_website_margin: 0 0 0 32px;
   color: hsl(0, 100%, 100%);
 }
 
-.header__btn-close {
-  background: url('../../../assets/img/close.svg') center;
+.header__options {
+  display: flex;
+  align-items: center;
+}
+
+.header-btn {
   width: $btn_close_size;
   height: $btn_close_size;
   border: none;
-  cursor: pointer;
+  background: transparent;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.5);
+  }
+}
+
+.header__btn-menu {
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.header__btn-close {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 20px;
+    width: 100%;
+  }
 }
 
 .card__content {
