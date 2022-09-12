@@ -3,6 +3,7 @@ import { ChatHeaderOptionStore } from '../../../../store/chat-header-options/cha
 import { ChatHeaderOptionsQuery } from '../../../../store/chat-header-options/chat-header-options.query';
 import { UserInfoService } from '../../../../services/user-info/user-info.service';
 import { ChatHeaderOption } from '../../../../interfaces/chat-header-option.interface';
+import { DropdownOption } from '../../../../interfaces/dropdown-option.interface';
 
 @Component({
   selector: 'app-chat-header-option',
@@ -17,11 +18,10 @@ export class ChatHeaderOptionComponent {
   @Input() imageAlt: string;
   @Input() id: number;
 
-  isDropdownOpen = false;
-  chatMenuOptions = [
-    { id: 1, name: 'Mute notifications' },
-    { id: 2, name: 'View profile' },
-    { id: 3, name: 'Delete chat' },
+  chatMenuOptions: DropdownOption[] = [
+    { id: 1, name: 'Mute notifications', value: 0, imgSrc: 'assets/img/mute.svg', imgAlt: 'Mute notifications' },
+    { id: 2, name: 'View profile', value: 1, imgSrc: 'assets/img/user_profile_avatar.svg', imgAlt: 'View user info' },
+    { id: 3, name: 'Delete chat', value: 2, imgSrc: 'assets/img/delete-bin.svg', imgAlt: 'Delete user' },
   ];
 
   constructor(
@@ -37,25 +37,18 @@ export class ChatHeaderOptionComponent {
 
   handleOptionDropdownClick(): void {
     this.chatHeaderOptionStore.setActive(this.id);
-    this.toggleDropdown();
   }
 
-  closeDropdown(): void {
-    this.isDropdownOpen = false;
-  }
-
-  executeDropdownOption(id: number, event: Event): void {
-    this.closeDropdown();
+  executeDropdownOption(option: DropdownOption): void {
     const optionsMethods: { [key: number]: () => void } = {
       0: () => console.log('mute chat'),
       1: () => {
-        event.stopPropagation();
         this.userInfoService.showUserInfoSection$.emit();
       },
       2: () => this.removeChat$.emit(),
     };
 
-    optionsMethods[id]();
+    optionsMethods[option.value]();
   }
 
   get isOptionSelected(): boolean {
@@ -74,11 +67,6 @@ export class ChatHeaderOptionComponent {
     };
 
     optionsMethods[this.id]();
-  }
-
-  private toggleDropdown(): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    if (!this.isDropdownOpen) this.chatHeaderOptionStore.setActive(null);
   }
 
   private storeCustomOption(): void {
