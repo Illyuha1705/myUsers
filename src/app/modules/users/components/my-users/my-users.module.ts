@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ChatHeaderModule } from '../chat-header/chat-header.module';
 import { UserInfoTrayModule } from '../user-info-tray/user-info-tray.module';
 import { MessageFieldModule } from '../message-field/message-field.module';
+import { UserInfoCardModule } from '../user-info-card/user-info-card.module';
 
 @NgModule({
   declarations: [MyUsersComponent],
@@ -26,6 +27,7 @@ import { MessageFieldModule } from '../message-field/message-field.module';
     ChatHeaderModule,
     UserInfoTrayModule,
     MessageFieldModule,
+    UserInfoCardModule,
   ],
   providers: [UsersService],
   exports: [MyUsersComponent],

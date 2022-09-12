@@ -1,0 +1,23 @@
+<div class="dropdown" (clickOutside)="closeDropdown()">
+  <button
+    class="dropdown__toggle"
+    (click)="toggleDropdown()"
+    [ngClass]="{ 'opened-dropdown': isDropdownOpen }"
+  >
+    <img src="assets/img/menu.svg" alt="Menu button"/>
+  </button>
+  <div class="dropdown__content" *ngIf="isDropdownOpen">
+    <ul class="dropdown__items-list">
+      <li
+        *ngFor="let item of dropdownList"
+        (click)="selectItem($event, item)"
+        class="dropdown__item dropdown-item"
+      >
+        <div class="dropdown-item__img">
+          <img [src]="item.imgSrc" [alt]="item.imgAlt">
+        </div>
+        <span [innerHTML]="item.name"></span>
+      </li>
+    </ul>
+  </div>
+</div>

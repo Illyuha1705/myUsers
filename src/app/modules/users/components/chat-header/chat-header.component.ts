@@ -17,7 +17,8 @@ export class ChatHeaderComponent {
     this.usersStoreService.removeUserById(this.selectedUser.id);
   }
 
-  toggleUserInfoCard(): void {
+  toggleUserInfoCard(event: Event): void {
     this.userInfoService.showUserInfoSection$.emit();
+    event.stopPropagation();
   }
 }

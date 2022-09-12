@@ -33,7 +33,7 @@
       <ul class="chat-menu-dropdown__items-list">
         <li
           *ngFor="let item of chatMenuOptions; let i = index"
-          (click)="executeDropdownOption(i)"
+          (click)="executeDropdownOption(i, $event)"
           class="chat-menu-dropdown__item"
         >
           <span [innerHTML]="item.name"></span>

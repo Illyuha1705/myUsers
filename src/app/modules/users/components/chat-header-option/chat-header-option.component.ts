@@ -44,11 +44,14 @@ export class ChatHeaderOptionComponent {
     this.isDropdownOpen = false;
   }
 
-  executeDropdownOption(id: number): void {
+  executeDropdownOption(id: number, event: Event): void {
     this.closeDropdown();
     const optionsMethods: { [key: number]: () => void } = {
       0: () => console.log('mute chat'),
-      1: () => this.userInfoService.showUserInfoSection$.emit(),
+      1: () => {
+        event.stopPropagation();
+        this.userInfoService.showUserInfoSection$.emit();
+      },
       2: () => this.removeChat$.emit(),
     };
 

@@ -1,5 +1,5 @@
 <section class="chat-header">
-  <div class="chat-header__main-info" (click)="toggleUserInfoCard()">
+  <div class="chat-header__main-info" (click)="toggleUserInfoCard($event)">
     <h1 class="chat-header__title">{{ selectedUser.name }}</h1>
     <div class="chat-header__online-info">{{ 'APP.CHAT_HEADER.LAST_ONLINE' | translate }}</div>
   </div>

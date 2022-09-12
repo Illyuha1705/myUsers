@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { MoleculeCardModule } from './molecule-card/molecule-card.module';
 import { MoleculeSidebarModule } from './molecule-sidebar/molecule-sidebar.module';
+import { MoleculeDropdownModule } from './molecule-dropdown/molecule-dropdown.module';
 
 @NgModule({
-  imports: [MoleculeCardModule, MoleculeSidebarModule],
-  exports: [MoleculeCardModule, MoleculeSidebarModule],
+  imports: [MoleculeSidebarModule, MoleculeDropdownModule],
+  exports: [MoleculeSidebarModule, MoleculeDropdownModule],
 })
 export class MoleculesModule {}

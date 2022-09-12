@@ -56,6 +56,6 @@
   </div>
 </section>
 
-<ng-container *ngIf="isUserInfoOpen">
-  <gc-card [user]="selectedUser$ | async" (closeButtonWasClicked$)="closeUserInfo()"></gc-card>
+<ng-container *ngIf="isUserInfoOpen && isUserSelected">
+  <app-user-info-card [user]="selectedUser$ | async" (closeButtonWasClicked$)="closeUserInfo()"></app-user-info-card>
 </ng-container>
